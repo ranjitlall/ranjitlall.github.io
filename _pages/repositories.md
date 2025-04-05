@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /repositories/
-title: Repositories
+title: data and software
 description: Pulling latest stats from GitHub.
 nav: true
 nav_order: 3
