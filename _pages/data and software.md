@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /repositories/
+permalink: /data_software/
 title: data and software
 description: 
 nav: true
