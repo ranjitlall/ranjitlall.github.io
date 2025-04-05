@@ -21,7 +21,7 @@ social: true  # includes social icons at the bottom of the page
 <p align="justify">
 I am an Associate Professor of International Political Economy in the <a href = "https://www.politics.ox.ac.uk/"> Department of Politics and International Relations</a> and a Fellow of <a href = "https://www.sjc.ox.ac.uk/"> St John's College</a> at the University of Oxford. </p>
   
-<p align="justify"> My research focuses on the political economy of international cooperation, development, and technological change. My book <a href = "https://doi.org/10.1017/9781009216265"> Making International Institutions Work</a> seeks to understand why some international institutions perform better than others. I also have methodological interests in machine learning and the analysis of missing data. </p>
+<p align="justify"> My research focuses on the political economy of international cooperation, development, and technological change. My book <i> <a href = "https://doi.org/10.1017/9781009216265"> Making International Institutions Work</a> </i> seeks to understand why some international institutions perform better than others. I also have methodological interests in machine learning and the analysis of missing data. </p>
 
 <p align="justify"> I received my PhD in Government from Harvard University and my BA in Philosophy, Politics, and Economics from the University of Oxford. My research has received the <i> Merze Tate Award </i> from the American Political Science Association and the <i> Leamer-Rosenthal Prize for Open Social Science </i> from the Berkeley Initiative for Transparency in the Social Sciences. Before my PhD, I worked as an economist at the Bank of England and an editorial writer at the Financial Times. </p>
 
