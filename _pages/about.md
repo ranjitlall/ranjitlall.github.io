@@ -6,7 +6,7 @@ subtitle:
 
 profile:
   align: right
-  image: photo_sep2022_sl.jpeg
+  image: <img src="assets/img/photo_sep2022_sl.jpeg" width="200">
   image_circular: true # crops the image to make it circular
   address: >
     <p>N4-3 St. John's College</p>
