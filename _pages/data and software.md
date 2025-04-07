@@ -6,7 +6,7 @@ description:
 nav: true
 ---
 
-### Datasets
+### datasets
 
 **World of International Non-Governmental Organizations (WINGO) Database**, <a href ="https://github.com/ranjitlall/wingo"> Hosted on GitHub </a>
 
@@ -28,7 +28,7 @@ The PPD is the world's largest database of international development projects th
 
 Most of the datasets used in my other research can be accessed from the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/harvard/?q=ranjit+lall).
 
-### Software
+### software
 
 **[MIDASverse](https://github.com/MIDASverse): fast and accurate missing-data imputation with deep learning**
 
