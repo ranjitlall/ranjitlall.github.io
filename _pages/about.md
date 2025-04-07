@@ -1,7 +1,6 @@
 ---
 layout: about
 title: about
-description: Associate Professor, Oxford
 permalink: /
 subtitle:
 
