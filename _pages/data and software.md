@@ -30,9 +30,9 @@ Most of the datasets used in my other research can be accessed from the [Harvard
 
 ### software
 
-**[MIDASverse](https://github.com/MIDASverse): fast and accurate missing-data imputation with deep learning**
+**[MIDASverse](https://github.com/MIDASverse)**: fast and accurate missing-data imputation with deep learning
 
 <img align="right" src="https://user-images.githubusercontent.com/35332935/173778078-eb427fbb-5b55-485d-9698-aa0cbde7ae73.png" width="165" height="165">
 
-The MIDASverse, developed with Thomas Robinson and Alex Stenlake, is a set of software packages for efficiently imputing missing data using deep learning methods in Python (<a href ="https://github.com/MIDASverse/MIDASpy">**MIDASpy**</a>) and R (<a href ="https://github.com/MIDASverse/rMIDAS">**rMIDAS**</a>). The software implements a recently developed approach to multiple imputation known as MIDAS, which involves introducing additional missing values into the dataset, attempting to reconstruct these values with a type of unsupervised neural network known as a denoising autoencoder, and using the resulting model to draw imputations of originally missing data. These steps are executed by a fast and flexible algorithm that offers significant accuracy and efficiency advantages over other multiple imputation strategies, particularly when applied to large datasets with complex features.
+The MIDASverse, developed with Thomas Robinson and Alex Stenlake, is a set of software packages for efficiently imputing missing data using deep learning methods in Python (**[MIDASpy](https://github.com/MIDASpy)**) and R (**[rMIDAS](https://github.com/rMIDAS)**). The software implements a recently developed approach to multiple imputation known as MIDAS, which involves introducing additional missing values into the dataset, attempting to reconstruct these values with a type of unsupervised neural network known as a denoising autoencoder, and using the resulting model to draw imputations of originally missing data. These steps are executed by a fast and flexible algorithm that offers significant accuracy and efficiency advantages over other multiple imputation strategies, particularly when applied to large datasets with complex features.
 
