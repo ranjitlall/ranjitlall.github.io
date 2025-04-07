@@ -8,19 +8,19 @@ nav: true
 
 ### datasets
 
-**World of International Non-Governmental Organizations (WINGO) Database**, <a href ="https://github.com/ranjitlall/wingo"> Hosted on GitHub </a>
+**World of International Non-Governmental Organizations (WINGO) Database**, <a href ="https://github.com/ranjitlall/wingo"> hosted on GitHub </a>
 
 The World of International Non-Governmental Organizations (WINGO) database is a comprehensive catalogue of formal international non-governmental organizations (INGOs). The dataset, which encompasses more than 2,600 organizations, is based primarily on the Yearbook of International Organizations, a reference work on international organizations published by the Union of International Associations (UIA). It additionally includes original information on INGOs’ founding dates, dissolution dates, headquarters locations, and issue areas.
 
-**Accountability in Global Governance (AGG) Database**, <a href ="https://github.com/ranjitlall/agg"> Hosted on GitHub </a>
+**Accountability in Global Governance (AGG) Database**, <a href ="https://github.com/ranjitlall/agg"> hosted on GitHub </a>
 
 The AGG database measures the strength of formal accountability mechanisms possessed by major international institutions. The dataset covers five types of mechanisms --- transparency, evaluation, redress, investigation, and participation mechanisms --- and covers 52 significant international institutions between 1960 and 2018. It also includes a number of additional variables that may be of interest to scholars of accountability in global governance, such as institutions’ governance tasks, decision-making procedures, financial resources, and media coverage.
 
-**Performance of International Institutions Project (PIIP)**, <a href ="https://github.com/ranjitlall/piip"> Hosted on GitHub </a>
+**Performance of International Institutions Project (PIIP)**, <a href ="https://github.com/ranjitlall/piip"> hosted on GitHub </a>
 
 The PIIP is the most comprehensive dataset on the performance of international institutions. It includes performance ratings of 54 major institutions between 2008 and 2018 by the governments of Australia, Denmark, the Netherlands, Sweden, and the UK and the Multilateral Organization Performance Assessment Network (MOPAN). A wealth of additional information on these institutions, including on their policy autonomy, governance tasks, and operational partnerships, is also provided.
 
-**Project Performance Database (PPD) 2.1**, <a href ="https://www.aiddata.org/data/project-performance-database-ppd-version-2-0"> Hosted by AidData </a>
+**Project Performance Database (PPD) 2.1**, <a href ="https://www.aiddata.org/data/project-performance-database-ppd-version-2-0"> hosted by AidData </a>
 
 The PPD is the world's largest database of international development projects that includes quantitative ratings of holistic project performance. Version 2.0, developed jointly with Dan Honig and Bradley Parks, contains evaluations of more than 20,000 unique foreign aid projects in 183 countries between 1956 and 2016 by 12 bilateral and multilateral aid agencies.
 
