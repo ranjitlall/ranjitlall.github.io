@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Associate Professor, Oxford
+subtitle: Political scientist, Oxford
 
 profile:
   align: right
