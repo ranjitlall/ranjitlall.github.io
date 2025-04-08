@@ -14,7 +14,7 @@ nav_order: 1
 
 {% bibliography -f books %}
 
-<h1> papers </h1>
+<h1> articles and book chapters </h1>
 
 {% for y in page.years %}
   <h2 class="year">{{y}}</h2>
