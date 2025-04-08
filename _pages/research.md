@@ -10,11 +10,11 @@ nav_order: 1
 <!-- _pages/publications.md -->
 <div class="publications">
 
-<h1>preprints</h1>
+<h1>book</h1>
 
 {% bibliography -f books %}
 
-<h1> peer reviewed </h1>
+<h1> articles </h1>
 
 {% for y in page.years %}
   <h2 class="year">{{y}}</h2>
@@ -23,7 +23,7 @@ nav_order: 1
 
 
 
-<h1>posters</h1>
+<h1>policy reports</h1>
 
 {% bibliography -f policy_reports %}
 
