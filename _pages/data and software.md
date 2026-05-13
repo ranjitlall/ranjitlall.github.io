@@ -30,7 +30,7 @@ Most of the datasets used in my other research are available through the [Harvar
 
 ### software
 
-**[MIDASverse](https://github.com/MIDASverse)**: a suite of Python and R packages for missing-data analysis using deep learning methods. Developed with Thomas Robinson. <img align="right" src="https://user-images.githubusercontent.com/35332935/173778078-eb427fbb-5b55-485d-9698-aa0cbde7ae73.png" width="165" height="165">
+**[MIDASverse](https://github.com/MIDASverse)**: a suite of Python and R packages for missing-data analysis using machine learning methods. Developed with Thomas Robinson. <img align="right" src="https://user-images.githubusercontent.com/35332935/173778078-eb427fbb-5b55-485d-9698-aa0cbde7ae73.png" width="165" height="165">
 
 **[citest](https://github.com/MIDASverse/citest)** — Python (PyPI): tests conditional independence in incomplete regression analysis with machine learning.
 
