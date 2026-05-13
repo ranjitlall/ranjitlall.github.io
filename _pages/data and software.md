@@ -32,10 +32,10 @@ Most of the datasets used in my other research are available through the [Harvar
 
 **[MIDASverse](https://github.com/MIDASverse)**: a suite of Python and R packages for missing-data analysis using deep learning methods. Developed with Thomas Robinson. <img align="right" src="https://user-images.githubusercontent.com/35332935/173778078-eb427fbb-5b55-485d-9698-aa0cbde7ae73.png" width="165" height="165">
 
-**[citest](https://github.com/MIDASverse/citest)** — Python (PyPI): tests conditional independence in incomplete regression analysis with machine learning methods.
+**[citest](https://github.com/MIDASverse/citest)** — Python (PyPI): tests conditional independence in incomplete regression analysis with machine learning.
 
 **[citestR](https://cran.r-project.org/web/packages/citestR/index.html)** — R (CRAN): R equivalent of citest.
 
-**[MIDASpy](https://github.com/MIDASverse/MIDASpy)** — Python (PyPI): accurate and efficient multiple imputation with deep learning methods.
+**[MIDASpy](https://github.com/MIDASverse/MIDASpy)** — Python (PyPI): accurate and efficient multiple imputation with deep learning.
 
 **[rMIDAS](https://github.com/MIDASverse/rMIDAS)** — R (CRAN): R equivalent of MIDASpy.
