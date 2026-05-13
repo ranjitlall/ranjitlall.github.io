@@ -29,15 +29,13 @@ The Project Performance Database (PPD) is the world’s largest dataset of inter
 Most of the datasets used in my other research are available through the [Harvard Dataverse](https://dataverse.harvard.edu/dataverse/harvard/?q=ranjit+lall).
 
 ### software
-
 **[MIDASverse](https://github.com/MIDASverse)**: a suite of Python and R packages for missing-data analysis using deep learning methods.
 <img align="right" src="https://user-images.githubusercontent.com/35332935/173778078-eb427fbb-5b55-485d-9698-aa0cbde7ae73.png" width="165" height="165">
 
-**[citest](https://github.com/MIDASverse/citest)** — Python (PyPI): tests conditional independence in incomplete regression analysis with machine learning methods.
+**[citest](https://github.com/MIDASverse/citest)** — Python (PyPI): tests conditional independence in incomplete regression analysis with machine learning methods. With Thomas Robinson.
 
-**[citestR](https://cran.r-project.org/web/packages/citestR/index.html)** — R (CRAN): R equivalent of citest.
-<div style="clear: both;"></div>
+**[citestR](https://cran.r-project.org/web/packages/citestR/index.html)** — R (CRAN): R equivalent of citest. With Thomas Robinson.
 
-**[MIDASpy](https://github.com/MIDASverse/MIDASpy)** — Python (PyPI): accurate and efficient multiple imputation with deep learning methods.
+**[MIDASpy](https://github.com/MIDASverse/MIDASpy)** — Python (PyPI): accurate and efficient multiple imputation with deep learning methods. With Thomas Robinson and Alex Stenlake.
 
-**[rMIDAS](https://github.com/MIDASverse/rMIDAS)** — R (CRAN): R equivalent of MIDASpy.
+**[rMIDAS](https://github.com/MIDASverse/rMIDAS)** — R (CRAN): R equivalent of MIDASpy. With Thomas Robinson and Alex Stenlake.
