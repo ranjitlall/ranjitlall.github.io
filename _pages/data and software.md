@@ -30,14 +30,14 @@ Most of the datasets used in my other research are available through the [Harvar
 
 ### software
 
-**[MIDASverse](https://github.com/MIDASverse)**: The MIDASverse (developed with Thomas Robinson and Alex Stenlake) is a suite of Python and R packages for missing-data analysis using deep learning methods.
+**[MIDASverse](https://github.com/MIDASverse)**: a suite of Python and R packages for missing-data analysis using deep learning methods.
 <img align="right" src="https://user-images.githubusercontent.com/35332935/173778078-eb427fbb-5b55-485d-9698-aa0cbde7ae73.png" width="165" height="165">
 
-**[citest](https://github.com/MIDASverse/citest)** — Python (PyPI): tests conditional independence in incomplete regression analysis with machine learning methods. With Thomas Robinson.
+**[citest](https://github.com/MIDASverse/citest)** — Python (PyPI): tests conditional independence in incomplete regression analysis with machine learning methods.
 
-**[citestR](https://cran.r-project.org/web/packages/citestR/index.html)** — R (CRAN): R equivalent of citest. With Thomas Robinson.
+**[citestR](https://cran.r-project.org/web/packages/citestR/index.html)** — R (CRAN): R equivalent of citest.
 <div style="clear: both;"></div>
 
-**[MIDASpy](https://github.com/MIDASverse/MIDASpy)** — Python (PyPI): accurate and efficient multiple imputation with deep learning methods. With Thomas Robinson and Alex Stenlake.
+**[MIDASpy](https://github.com/MIDASverse/MIDASpy)** — Python (PyPI): accurate and efficient multiple imputation with deep learning methods.
 
-**[rMIDAS](https://github.com/MIDASverse/rMIDAS)** — R (CRAN): R equivalent of MIDASpy. With Thomas Robinson and Alex Stenlake.
+**[rMIDAS](https://github.com/MIDASverse/rMIDAS)** — R (CRAN): R equivalent of MIDASpy.
