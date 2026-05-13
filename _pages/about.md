@@ -8,7 +8,7 @@ profile:
   align: right
   image: photo_sep2022_sl.jpeg
   image_circular: true # crops the image to make it circular
-address: >
+  address: >
   <div style="text-align: center; width: 100%; display: block;">
     <p style="text-align: center;">N4-3 St. John's College</p>
     <p style="text-align: center;">St. Giles', Oxford</p>
