@@ -9,10 +9,12 @@ profile:
   image: photo_sep2022_sl.jpeg
   image_circular: true # crops the image to make it circular
   address: >
+    <center>
     <p>N4-3 St. John&#39;s College</p>
     <p>St. Giles&#39;, Oxford</p>
     <p>OX1 3JP</p>
     <p>United Kingdom</p>
+    </center>
 news:  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
