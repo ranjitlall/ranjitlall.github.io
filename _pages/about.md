@@ -20,7 +20,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 <p align="justify">
-I am an Associate Professor of International Political Economy in the <a href = "https://www.politics.ox.ac.uk/"> Department of Politics and International Relations</a> and a Fellow of <a href = "https://www.sjc.ox.ac.uk/"> St John's College</a> at the University of Oxford. </p>
+I am a Professor of International Political Economy in the <a href = "https://www.politics.ox.ac.uk/"> Department of Politics and International Relations</a> and a Fellow of <a href = "https://www.sjc.ox.ac.uk/"> St John's College</a> at the University of Oxford. </p>
   
 <p align="justify"> My research focuses on the political economy of international cooperation, development, and technological change. My book <i> <a href = "https://doi.org/10.1017/9781009216265"> Making International Institutions Work</a> </i> examines why some international institutions perform better than others. I also have methodological interests in machine learning and the analysis of missing data. </p>
 
