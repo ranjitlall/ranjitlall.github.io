@@ -1,0 +1,125 @@
+---
+layout: layouts/base.njk
+title: Data & software
+permalink: /data_software/index.html
+description: Original datasets and open-source packages from the research of Ranjit Lall.
+---
+
+<section class="pagehero">
+  <div class="wrap">
+    <span class="hero__kicker">Open research</span>
+    <h1>Data &amp; software</h1>
+    <p>Original datasets and open-source packages from my research, hosted on GitHub, CRAN, PyPI, AidData, and the Harvard Dataverse.</p>
+  </div>
+</section>
+<nav class="sectionnav" aria-label="On this page">
+  <div class="wrap sectionnav__inner">
+    <span class="sectionnav__label">On this page</span>
+    <ul><li><a href="#datasets">Datasets</a></li><li><a href="#software">Software</a></li></ul>
+  </div>
+</nav>
+
+<section class="section" id="datasets">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Datasets</span>
+      <h2>Datasets</h2>
+      <p>Original data built for my research, released openly.</p>
+    </div>
+    <div class="ds">
+      <article class="dataset">
+        <h3><a href="https://github.com/ranjitlall/wingo">World of International Non-Governmental Organizations (WINGO)</a></h3>
+        <p>A comprehensive catalogue of formal international non-governmental organizations,
+          covering more than 2,600 bodies. Based primarily on the Yearbook of International
+          Organizations, with original data on founding and dissolution dates, headquarters
+          locations, and issue areas.</p>
+        <div class="dataset__meta">
+          <a class="btn btn--sm btn--outline" href="https://github.com/ranjitlall/wingo">GitHub &rarr;</a>
+          <span class="card__use" style="border:0;padding:0;margin:0">Used in <a href="https://onlinelibrary.wiley.com/doi/10.1111/ajps.12824">&ldquo;Making Global Governance Accountable&rdquo;</a>, <em>AJPS</em> 2025</span>
+        </div>
+      </article>
+      <article class="dataset">
+        <h3><a href="https://github.com/ranjitlall/agg">Accountability in Global Governance (AGG)</a></h3>
+        <p>The strength of formal accountability mechanisms in 52 major international
+          institutions between 1960 and 2018, across five categories: transparency, evaluation,
+          redress, investigation, and participation. Includes governance tasks, decision-making
+          procedures, financial resources, and media coverage.</p>
+        <div class="dataset__meta">
+          <a class="btn btn--sm btn--outline" href="https://github.com/ranjitlall/agg">GitHub &rarr;</a>
+          <span class="card__use" style="border:0;padding:0;margin:0">Used in <a href="https://onlinelibrary.wiley.com/doi/10.1111/ajps.12824">&ldquo;Making Global Governance Accountable&rdquo;</a>, <em>AJPS</em> 2025</span>
+        </div>
+      </article>
+      <article class="dataset">
+        <h3><a href="https://github.com/ranjitlall/piip">Performance of International Institutions Project (PIIP)</a></h3>
+        <p>Performance assessments of 54 major institutions between 2008 and 2018, produced by
+          the governments of Australia, Denmark, the Netherlands, Sweden, and the United
+          Kingdom, and by the Multilateral Organisation Performance Assessment Network (MOPAN).
+          Also covers policy autonomy, governance tasks, and operational partnerships.</p>
+        <div class="dataset__meta">
+          <a class="btn btn--sm btn--outline" href="https://github.com/ranjitlall/piip">GitHub &rarr;</a>
+          <span class="card__use" style="border:0;padding:0;margin:0">Used in <a href="https://www.cambridge.org/core/books/making-international-institutions-work/2B354270D50B9471D04529CD8D5C98F7"><em>Making International Institutions Work</em></a>, CUP 2023</span>
+        </div>
+      </article>
+      <article class="dataset">
+        <h3><a href="https://www.aiddata.org/data/project-performance-database-ppd-version-2-0">Project Performance Database (PPD) 2.1</a></h3>
+        <p>The world&rsquo;s largest dataset of international development projects with
+          quantitative measures of overall performance: evaluations of more than 20,000 foreign
+          aid projects in 183 countries between 1956 and 2016, by 12 bilateral and multilateral
+          agencies. Developed with Dan Honig and Bradley Parks.</p>
+        <div class="dataset__meta">
+          <a class="btn btn--sm btn--outline" href="https://www.aiddata.org/data/project-performance-database-ppd-version-2-0">AidData &rarr;</a>
+        </div>
+      </article>
+      <article class="dataset">
+        <h3><a href="https://dataverse.harvard.edu/dataverse/harvard/?q=ranjit+lall">Replication data</a></h3>
+        <p>Data and code for my other published research are available through the Harvard
+          Dataverse.</p>
+        <div class="dataset__meta">
+          <a class="btn btn--sm btn--outline" href="https://dataverse.harvard.edu/dataverse/harvard/?q=ranjit+lall">Dataverse &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="software">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Software</span>
+      <h2>Software</h2>
+      <p>Open-source packages for missing-data analysis using machine learning.</p>
+    </div>
+    <div class="suite">
+      <img src="{{ '/assets/img/midasverse.png' | url }}" alt="" width="150" height="150">
+      <div>
+        <p><strong>MIDASverse</strong> is a suite of Python and R packages for missing-data
+          analysis using machine learning, developed with Thomas Robinson. Introduced in
+          <a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/midas-touch-accurate-and-scalable-missingdata-imputation-with-deep-learning/5007854F57E88AF16D69BCCA4C5AF1FF">&ldquo;The MIDAS Touch&rdquo;</a>, <em>Political Analysis</em> 2022, and
+          <a href="https://www.jstatsoft.org/article/view/v107i09">&ldquo;Efficient Multiple Imputation&rdquo;</a>, <em>JSS</em> 2023.</p>
+      </div>
+    </div>
+    <div class="pkg">
+      <div class="pkgrow">
+        <span class="pkgrow__n"><a href="https://github.com/MIDASverse/MIDASpy">MIDASpy</a></span>
+        <span class="pkgrow__lang">Python &middot; PyPI</span>
+        <span class="pkgrow__d">Accurate and efficient multiple imputation with deep learning.</span>
+      </div>
+      <div class="pkgrow">
+        <span class="pkgrow__n"><a href="https://cran.r-project.org/web/packages/rMIDAS/index.html">rMIDAS</a></span>
+        <span class="pkgrow__lang">R &middot; CRAN</span>
+        <span class="pkgrow__d">R equivalent of MIDASpy.</span>
+      </div>
+      <div class="pkgrow">
+        <span class="pkgrow__n"><a href="https://github.com/MIDASverse/citest">citest</a></span>
+        <span class="pkgrow__lang">Python &middot; PyPI</span>
+        <span class="pkgrow__d">Tests conditional independence in incomplete regression analysis with machine learning.</span>
+      </div>
+      <div class="pkgrow">
+        <span class="pkgrow__n"><a href="https://cran.r-project.org/web/packages/citestR/index.html">citestR</a></span>
+        <span class="pkgrow__lang">R &middot; CRAN</span>
+        <span class="pkgrow__d">R equivalent of citest.</span>
+      </div>
+    </div>
+  </div>
+</section>
+

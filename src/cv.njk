@@ -1,0 +1,19 @@
+---
+layout: null
+permalink: /cv/index.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Curriculum vitae | {{ site.name }}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ site.url }}{{ site.cv }}">
+<meta http-equiv="refresh" content="0; url={{ site.cv | url }}">
+</head>
+<body>
+<p>Redirecting to the <a href="{{ site.cv | url }}">curriculum vitae (PDF)</a>.</p>
+<script>window.location.replace({{ (site.cv | url) | dump | safe }});</script>
+</body>
+</html>

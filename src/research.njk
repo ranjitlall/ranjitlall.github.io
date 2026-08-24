@@ -1,0 +1,76 @@
+---
+layout: layouts/base.njk
+title: Research
+permalink: /research/index.html
+description: Books, journal articles, chapters, and policy reports by Ranjit Lall.
+---
+{% import "pub.njk" as pub %}
+
+<section class="pagehero">
+  <div class="wrap">
+    <span class="hero__kicker">Publications</span>
+    <h1>Research</h1>
+    <p>Books, journal articles, chapters, and policy reports. Abstracts and BibTeX expand in place; every entry links to the publisher and to a PDF.</p>
+  </div>
+</section>
+<nav class="sectionnav" aria-label="On this page">
+  <div class="wrap sectionnav__inner">
+    <span class="sectionnav__label">On this page</span>
+    <ul><li><a href="#book">Book</a></li><li><a href="#articles">Articles &amp; chapters</a></li><li><a href="#reports">Policy reports</a></li></ul>
+  </div>
+</nav>
+
+
+<section class="section" id="book">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Book</span><h2>Book</h2></div>
+    <div class="bookrow">
+      <div>
+        <ol class="pubs">
+{% for p in publications.books %}{{ pub.entry(p) }}{% endfor %}
+        </ol>
+        <div style="margin-top:.9rem"><a class="btn btn--outline" href="{{ '/book/' | url }}">More about the book &rarr;</a></div>
+      </div>
+      <a href="{{ '/book/' | url }}"><img class="bookrow__cover" src="{{ '/assets/img/book-cover.jpg' | url }}"
+         alt="Making International Institutions Work" width="560" height="823"></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="articles">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Articles &amp; chapters</span>
+      <h2>Articles and book chapters</h2>
+      <p class="pubcount">{{ publications.counts.papers + publications.counts.working }} items</p>
+    </div>
+{% if publications.working.length %}
+    <p class="yr">Forthcoming</p>
+    <ol class="pubs">
+{% for p in publications.working %}{{ pub.entry(p) }}{% endfor %}
+    </ol>
+{% endif %}
+{% for group in publications.papers | byYear %}
+    <p class="yr">{{ group.year }}</p>
+    <ol class="pubs">
+{% for p in group.items %}{{ pub.entry(p) }}{% endfor %}
+    </ol>
+{% endfor %}
+  </div>
+</section>
+
+<section class="section" id="reports">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Policy reports</span>
+      <h2>Policy reports</h2>
+      <p class="pubcount">{{ publications.counts.reports }} items</p>
+    </div>
+{% for group in publications.reports | byYear %}
+    <p class="yr">{{ group.year }}</p>
+    <ol class="pubs">
+{% for p in group.items %}{{ pub.entry(p) }}{% endfor %}
+    </ol>
+{% endfor %}
+  </div>
+</section>

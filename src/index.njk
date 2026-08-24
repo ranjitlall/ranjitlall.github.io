@@ -1,0 +1,290 @@
+---
+layout: layouts/base.njk
+permalink: /index.html
+---
+{% import "pub.njk" as pub %}
+<section class="hero">
+  <svg class="hero__motif" viewBox="0 0 420 420" aria-hidden="true">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a9e8d" stop-opacity=".16"/>
+      <stop offset="70%" stop-color="#4a9e8d" stop-opacity=".05"/>
+      <stop offset="100%" stop-color="#4a9e8d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- soft core so the sphere reads as a body, not just wires -->
+  <circle class="m-glow" cx="210" cy="210" r="200" fill="url(#glow)"/>
+
+  <!-- shaded bands: the panels of the sphere -->
+  <g class="m-panels">
+    <ellipse cx="210" cy="210" rx="196" ry="66" fill="#f0b429" fill-opacity=".085" transform="rotate(-18 210 210)"/>
+    <ellipse cx="210" cy="210" rx="196" ry="116" fill="#4a9e8d" fill-opacity=".075" transform="rotate(26 210 210)"/>
+    <ellipse cx="210" cy="210" rx="196" ry="34" fill="#ffffff" fill-opacity=".05" transform="rotate(72 210 210)"/>
+    <circle cx="210" cy="210" r="150" fill="#ffffff" fill-opacity=".025"/>
+  </g>
+
+  <!-- rings -->
+  <g class="m-rings" fill="none" stroke-linecap="round">
+    <circle cx="210" cy="210" r="196" stroke="#ffffff" stroke-opacity=".22" stroke-width="1.2"/>
+    <ellipse cx="210" cy="210" rx="196" ry="66" stroke="#f7c65a" stroke-opacity=".85" stroke-width="1.5" transform="rotate(-18 210 210)"/>
+    <ellipse cx="210" cy="210" rx="196" ry="116" stroke="#63b8a6" stroke-opacity=".7" stroke-width="1.3" transform="rotate(26 210 210)"/>
+    <ellipse cx="210" cy="210" rx="196" ry="34" stroke="#ffffff" stroke-opacity=".28" stroke-width="1" transform="rotate(72 210 210)"/>
+    <circle cx="210" cy="210" r="150" stroke="#63b8a6" stroke-opacity=".3" stroke-width=".9"/>
+    <!-- graduated arc, echoing the degree scale on the book cover -->
+    <circle cx="210" cy="210" r="205" stroke="#f7c65a" stroke-opacity=".5" stroke-width="2.4" stroke-dasharray="1.6 11" transform="rotate(-8 210 210)"/>
+  </g>
+
+  <!-- polar axis -->
+  <line class="m-axis" x1="210" y1="4" x2="210" y2="416" stroke="#ffffff" stroke-opacity=".16" stroke-width=".9"
+        transform="rotate(-14 210 210)"/>
+
+  <!-- nodes riding the rings -->
+  <g>
+    <circle class="m-node" cx="24" cy="150" r="5" fill="#f7c65a"/>
+    <circle class="m-node" cx="392" cy="268" r="4.4" fill="#63b8a6"/>
+    <circle class="m-node" cx="286" cy="24" r="3.6" fill="#f2836d"/>
+    <circle class="m-node" cx="126" cy="401" r="3.8" fill="#5cc0e6"/>
+    <circle class="m-node" cx="405" cy="160" r="2.8" fill="#ffffff" fill-opacity=".6"/>
+  </g>
+</svg>
+  <div class="wrap hero__inner">
+    <div>
+      <span class="hero__kicker">University of Oxford</span>
+      <h1>Ranjit Lall<span class="thin">Professor of International Political Economy</span></h1>
+      <p class="hero__lede">I study the <strong>political economy of technological change,
+        international cooperation, and economic development</strong> — and the methods we use
+        to draw conclusions from incomplete evidence.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="{{ '/research/' | url }}">Research</a>
+        <a class="btn btn--outline" href="#cts">The Centre for Technology &amp; Society &rarr;</a>
+      </div>
+    </div>
+    <img class="hero__portrait" src="{{ '/assets/img/portrait.jpg' | url }}" alt="Ranjit Lall" width="480" height="480">
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about__grid">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>Institutions, technology, and evidence</h2>
+        <p>I am a Professor of International Political Economy in the
+          <a href="{{ site.departmentUrl }}">Department of Politics and International Relations</a> and a Fellow of
+          <a href="{{ site.collegeUrl }}">St John's College</a> at the University of Oxford. I am also Director of the
+          <a href="{{ site.centreUrl }}">Centre for Technology and Society</a>, which studies the
+          <span class="hl">social and economic consequences of emerging technologies</span>.</p>
+        <p>I work on how <span class="hl">new technologies</span> redistribute
+          <span class="hl--coral">political power</span>, why
+          <span class="hl">international cooperation</span> succeeds or fails, and what drives
+          <span class="hl--coral">economic development</span>. My book
+          <em><a href="{{ '/book/' | url }}">Making International Institutions Work</a></em> examines why some
+          international institutions perform better than others, drawing on the most
+          comprehensive dataset on the topic. I also have methodological interests in machine
+          learning and the analysis of missing data, and release the datasets and software
+          behind my research openly.</p>
+        <p>I received my PhD in Government from Harvard University and my BA in Philosophy,
+          Politics, and Economics from the University of Oxford. Before beginning my PhD, I
+          worked as an economist at the Bank of England and an editorial writer at the
+          <em>Financial Times</em>.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Affiliations</span>
+        <ul class="chips">
+          <li class="chip"><span class="chip__k">Dept</span><span><a href="{{ site.departmentUrl }}">Politics &amp; International Relations</a></span></li>
+          <li class="chip"><span class="chip__k">College</span><span><a href="{{ site.collegeUrl }}">St John's College</a></span></li>
+          <li class="chip"><span class="chip__k">Centre</span><span><a href="{{ site.centreUrl }}">Director, Centre for Technology and Society</a></span></li>
+          <li class="chip"><span class="chip__k">Previously</span><span>London School of Economics &middot; Financial Times &middot; Bank of England</span></li>
+          <li class="chip"><span class="chip__k">Education</span><span>PhD Harvard University &middot; BA University of Oxford</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="themes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Research themes</span>
+      <h2>Four strands of work</h2>
+      <p>Distinct questions, but a shared concern with what the evidence can and cannot support.</p>
+    </div>
+    <div class="themes">
+      <article class="theme">
+        <span class="theme__n">Strand I</span>
+        <h3>Technological change</h3>
+        <p>How AI and other emerging technologies are reshaping labour markets, redistributing
+          economic and political power, and reordering the politics that follows from both.
+          Much of this work now runs through the Centre for Technology and Society.</p>
+      </article>
+      <article class="theme">
+        <span class="theme__n">Strand II</span>
+        <h3>International cooperation</h3>
+        <p>Why some international institutions perform better than others, how they are held to
+          account, and what makes bureaucratic autonomy possible in a world of states pursuing
+          narrow interests.</p>
+      </article>
+      <article class="theme">
+        <span class="theme__n">Strand III</span>
+        <h3>Economic development</h3>
+        <p>What makes development finance work — the effectiveness of aid projects, the
+          transparency of the agencies that run them, and the long-run historical forces that
+          shape where prosperity takes hold.</p>
+      </article>
+      <article class="theme">
+        <span class="theme__n">Methods</span>
+        <h3>Missing data and machine learning</h3>
+        <p>Techniques for drawing valid inferences from incomplete data, including deep-learning
+          approaches to multiple imputation and tests for conditional independence — released as
+          open-source packages for R and Python.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--navy" id="cts">
+  <div class="wrap">
+    <div class="cts">
+      <div>
+        <img class="cts__lockup" src="{{ '/assets/img/cts-lockup-white.svg' | url }}"
+             alt="Centre for Technology and Society (CTS)" width="1060" height="250">
+        <span class="eyebrow">Centre for Technology and Society</span>
+        <h2>Understanding how technology is remaking society</h2>
+        <p>I am Director of the <strong>Centre for Technology and Society</strong> at the
+          University of Oxford, part of the Oxford Martin AI Governance Initiative. The Centre
+          produces <span class="hl">evidence-first research</span> on how emerging technologies
+          are reshaping work, power, and society &mdash; concentrating where the evidence is
+          thinnest and the stakes are highest.</p>
+        <p>Its two primary interests are the labour market implications of AI and the
+          dispersion of power among firms, states, and citizens.</p>
+        <div class="hero__actions" style="margin-top:1.6rem">
+          <a class="btn btn--primary" href="{{ site.centreUrl }}">Visit the Centre &rarr;</a>
+          <a class="btn btn--outline" href="{{ site.centreUrl }}working-papers/">Working Paper Series &rarr;</a>
+        </div>
+      </div>
+      <img class="cts__art" src="{{ '/assets/img/hero-dispersion.svg' | url }}"
+           alt="Illustration: a dense cluster of coloured points dispersing into a sparse field, within an outlined triangle"
+           width="560" height="480">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="book">
+  <div class="wrap">
+    <div class="book">
+      <a href="https://www.cambridge.org/core/books/making-international-institutions-work/2B354270D50B9471D04529CD8D5C98F7" class="book__coverlink"><img class="book__cover" src="{{ '/assets/img/book-cover.jpg' | url }}"
+           alt="Making International Institutions Work: The Politics of Performance, by Ranjit Lall (Cambridge University Press)"
+           width="560" height="823"></a>
+      <div>
+        <span class="book__meta">Book &middot; Cambridge University Press &middot; 2023</span>
+        <h2>Making International Institutions Work</h2>
+        <blockquote>Challenging popular characterisations of international institutions as
+          &lsquo;runaway bureaucracies&rsquo;, the most serious threat to performance comes from
+          the pursuit of narrow political interests by states.</blockquote>
+        <p>International institutions are essential for tackling many of the most urgent
+          challenges facing the world, yet we know little about when they succeed, when they
+          fail, and why. The book proposes a new theory of institutional performance and tests
+          it using the most comprehensive dataset on the topic.</p>
+        <div class="hero__actions" style="margin-top:1.4rem">
+          <a class="btn btn--primary" href="{{ '/book/' | url }}">About the book &rarr;</a>
+          <a class="btn btn--outline" href="https://www.cambridge.org/core/books/making-international-institutions-work/2B354270D50B9471D04529CD8D5C98F7">Cambridge University Press &rarr;</a>
+        </div>
+        <div class="pub__links" style="margin-top:.9rem">
+          {% for b in publications.books %}<a href="{{ b.pdf | url }}">PDF</a>{% if b.doi %}<a href="https://doi.org/{{ b.doi }}">DOI</a>{% endif %}{% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="publications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Selected publications</span>
+      <h2>Recent work</h2>
+      <p>The full list &mdash; articles, chapters, and policy reports &mdash; lives on the research page.</p>
+    </div>
+{% if publications.working.length %}
+    <p class="pubs-label">Forthcoming</p>
+    <ol class="pubs">
+{% for p in publications.working %}{{ pub.entry(p) }}{% endfor %}
+    </ol>
+{% endif %}
+    <p class="pubs-label">Published</p>
+    <ol class="pubs">
+{% for p in publications.selected | limit(2) %}{{ pub.entry(p) }}{% endfor %}
+    </ol>
+    <div style="margin-top:1.4rem"><a class="btn btn--outline" href="{{ '/research/' | url }}">All publications &rarr;</a></div>
+  </div>
+</section>
+
+<section class="section" id="data">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Data &amp; software</span>
+      <h2>Open datasets and packages</h2>
+      <p>Datasets and open-source tools from my research, hosted on GitHub, CRAN, PyPI, and Dataverse.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="card__kind">Dataset</span>
+        <h3><a href="https://github.com/ranjitlall/wingo">WINGO</a></h3>
+        <p>The World of International Non-Governmental Organizations: more than 2,600 INGOs,
+          with original data on founding and dissolution dates, headquarters, and issue areas.</p>
+        <p class="card__use">Used in <a href="https://onlinelibrary.wiley.com/doi/10.1111/ajps.12824">&ldquo;Making Global Governance Accountable&rdquo;</a>, <em>AJPS</em> 2025</p>
+        <div class="card__foot"><a class="btn btn--sm btn--outline" href="https://github.com/ranjitlall/wingo">GitHub &rarr;</a></div>
+      </article>
+      <article class="card">
+        <span class="card__kind">Dataset</span>
+        <h3><a href="https://github.com/ranjitlall/agg">AGG</a></h3>
+        <p>Accountability in Global Governance: formal accountability mechanisms in 52 major
+          international institutions, 1960&ndash;2018, across five categories.</p>
+        <p class="card__use">Used in <a href="https://onlinelibrary.wiley.com/doi/10.1111/ajps.12824">&ldquo;Making Global Governance Accountable&rdquo;</a>, <em>AJPS</em> 2025</p>
+        <div class="card__foot"><a class="btn btn--sm btn--outline" href="https://github.com/ranjitlall/agg">GitHub &rarr;</a></div>
+      </article>
+      <article class="card">
+        <span class="card__kind">Dataset</span>
+        <h3><a href="https://github.com/ranjitlall/piip">PIIP</a></h3>
+        <p>Performance of International Institutions Project: assessments of 54 institutions,
+          2008&ndash;2018, from six governments and the MOPAN network.</p>
+        <p class="card__use">Used in <a href="https://www.cambridge.org/core/books/making-international-institutions-work/2B354270D50B9471D04529CD8D5C98F7"><em>Making International Institutions Work</em></a>, CUP 2023</p>
+        <div class="card__foot"><a class="btn btn--sm btn--outline" href="https://github.com/ranjitlall/piip">GitHub &rarr;</a></div>
+      </article>
+      <article class="card">
+        <span class="card__kind">Software</span>
+        <div class="card__head">
+          <img class="card__logo" src="{{ '/assets/img/midasverse.png' | url }}" alt="" width="150" height="150">
+          <h3><a href="https://github.com/MIDASverse">MIDASverse</a></h3>
+        </div>
+        <p>Python and R packages for missing-data analysis using machine learning &mdash;
+          MIDASpy, rMIDAS, citest, citestR. Developed with Thomas Robinson.</p>
+        <p class="card__use">Introduced in <a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/midas-touch-accurate-and-scalable-missingdata-imputation-with-deep-learning/5007854F57E88AF16D69BCCA4C5AF1FF">&ldquo;The MIDAS Touch&rdquo;</a>, <em>PA</em> 2022 &amp;
+          <a href="https://www.jstatsoft.org/article/view/v107i09">&ldquo;Efficient Multiple Imputation&rdquo;</a>, <em>JSS</em> 2023</p>
+        <div class="card__foot"><a class="btn btn--sm btn--outline" href="https://github.com/MIDASverse">GitHub &rarr;</a></div>
+      </article>
+    </div>
+
+    <div style="margin-top:1.4rem"><a class="btn btn--outline" href="{{ '/data_software/' | url }}">All data &amp; software &rarr;</a></div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact__grid">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2>Get in touch</h2>
+        <p>Email is the best way to reach me.</p>
+        <p><a class="btn btn--primary" href="mailto:{{ site.email }}">{{ site.email }} &rarr;</a></p>
+      </div>
+      <div>
+        <span class="eyebrow">Address</span>
+        <address>
+          N4-3 St John's College<br>St Giles', Oxford<br>OX1 3JP<br>United Kingdom
+        </address>
+      </div>
+    </div>
+  </div>
+</section>
+

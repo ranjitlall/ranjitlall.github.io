@@ -1,20 +1,101 @@
-# My Portfolio (work in progress)
+# ranjitlall.github.io
 
-[![deploy](https://github.com/Siddhant-Ray/Siddhant-Ray.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Siddhant-Ray/Siddhant-Ray.github.io/actions/workflows/deploy.yml)
-[![demo](https://img.shields.io/badge/theme-demo-brightgreen.svg)](https://siddhant-ray.github.io/)
+Personal academic site. Built with [Eleventy](https://www.11ty.dev/), matching the
+visual language of the [Centre for Technology and Society](https://ranjitlall.github.io/cts-website/) site.
 
-A simple, clean, and responsive [Jekyll](https://jekyllrb.com/) theme for academics.
-If you like the theme, give it a star! This repository is based of [`al-folio`](https://github.com/alshedivat/al-folio) with some cool modifications.
+## Everyday tasks
 
-## Lighthouse PageSpeed Insights
+### Adding a publication
 
-[![Google PageSpeeg](https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/pagespeed.svg)](https://pagespeed.web.dev/report?url=https%3A%2F%2Falshedivat.github.io%2Fal-folio%2F&form_factor=desktop)
+Paste a BibTeX entry into the right file in `_bibliography/` and push. Nothing
+else needs editing — the site reads these files at build time.
 
-## License
+| File | Appears as |
+|---|---|
+| `books.bib` | Book |
+| `papers.bib` | Articles and book chapters, grouped by year |
+| `policy_reports.bib` | Policy reports |
+| `working_papers.bib` | Forthcoming, shown above the published list |
 
-The theme is available as open source under the terms of the [MIT License](https://github.com/alshedivat/al-folio/blob/master/LICENSE).
+Journals give you the BibTeX ready-made — look for "Cite" or "Export citation".
+Then add these extra fields, which publishers don't supply:
 
-Originally, **al-folio** was based on the [\*folio theme](https://github.com/bogoli/-folio) (published by [Lia Bogoev](https://liabogoev.com) and under the MIT license).
-Since then, it got a full re-write of the styles and many additional cool features.
+```bibtex
+@article{lall2027xyz,
+  abbr={APSR},                 % the coloured badge
+  bibtex_show={true},          % show the BibTeX toggle
+  title={...},
+  author={Lall, Ranjit and Jane Smith},
+  journal={American Political Science Review},
+  volume={121}, number={1}, pages={1--20},
+  year={2027},
+  doi={10.1017/...},
+  html={https://...},          % publisher's page
+  pdf={Lall 2027 APSR.pdf},    % filename inside assets/pdf/
+  abstract={...},
+  selected={true}              % optional: feature on the home page
+}
+```
 
-Note: Deploy.yml updated
+If you use a new `abbr`, give it a colour in `assets/css/style.css` — search for
+`.badge--`. Without one it falls back to navy, which still works.
+
+### Editing text
+
+- Home page: `src/index.njk`
+- Research page: `src/research.njk` (the lists are generated; only the headings are here)
+- Data and software: `src/data-software.njk`
+- Book page: `src/book.njk`
+- Name, address, email, links: `src/_data/site.json`
+- Shared header and footer: `src/_includes/layouts/base.njk`
+
+### Previewing locally
+
+```
+npm install      # once
+npm run serve    # then open http://localhost:8080
+```
+
+### Checking your work
+
+```
+npm run build
+node tools/verify.mjs
+```
+
+`verify.mjs` checks that every URL the old site published still exists, that no
+internal link or image is broken, and that the bibliography actually rendered.
+Run it before pushing anything structural.
+
+## Important: this is a user site, not a project site
+
+The site is served from the domain root, `https://ranjitlall.github.io`.
+
+- `eleventy.config.js` sets `pathPrefix: "/"`. Leave it.
+- `.github/workflows/deploy.yml` runs `npx @11ty/eleventy` with **no**
+  `--pathprefix` flag.
+- `src/_data/site.json` has `"url": "https://ranjitlall.github.io"` with no subpath.
+
+The CTS site is a *project* site at `/cts-website/`, so it does the opposite on
+all three counts. Copying its settings here would break every link and image.
+
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds and
+publishes via GitHub Pages.
+
+**Settings → Pages → Source must be set to "GitHub Actions"**, not "Deploy from
+a branch". The previous Jekyll setup pushed to a `gh-pages` branch; this one uses
+the Pages artifact mechanism. If the source is left on the old setting the deploy
+will show a green tick and the live site will not change.
+
+## Two CSS rules worth remembering
+
+Both of these caused visible bugs during the build:
+
+1. A flex or grid child stretches to fill its cross axis unless told not to.
+   Images need explicit dimensions and `align-self`; badges need
+   `justify-self: start`. Otherwise a small logo becomes a wide smear.
+2. A modifier for a dark background must undo *every* property the light base
+   set, `background` included — not just `color`. Otherwise you get white text
+   on a white button.

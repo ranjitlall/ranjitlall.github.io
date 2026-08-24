@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} | {{ site.role }}{% endif %}</title>
+<meta name="description" content="{{ description or site.description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta name="theme-color" content="#002147">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta property="og:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | url }}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="topbar" aria-hidden="true"></div>
+
+<div class="oxstrip">
+  <div class="wrap oxstrip__inner">
+    <a class="oxstrip__brand" href="https://www.ox.ac.uk">
+      <img src="{{ '/assets/img/logo-oxford.png' | url }}" alt="" width="120" height="120" aria-hidden="true">
+      <span>University of Oxford</span>
+    </a>
+    <div class="oxstrip__right">
+      <span class="hide-sm">Politics &amp; International Relations &middot; St John's College</span>
+      <span class="oxstrip__rule" aria-hidden="true"></span>
+      <a class="oxstrip__cts" href="{{ site.centreUrl }}" title="{{ site.centre }}">
+        <img src="{{ '/assets/img/cts-lockup-white.svg' | url }}" alt="{{ site.centre }}" width="1060" height="250">
+      </a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="{{ '/' | url }}">{{ site.name }}<span>International Political Economy</span></a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="visually-hidden">Menu</span>
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+        <path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
+    </button>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="{{ '/#about' | url }}">About</a>
+      <a href="{{ '/research/' | url }}">Research</a>
+      <a href="{{ '/data_software/' | url }}">Data &amp; software</a>
+      <a href="{{ '/#contact' | url }}">Contact</a>
+      <a href="{{ '/cv/' | url }}">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<div class="affil">
+  <div class="wrap">
+    <p class="affil__label">Affiliations</p>
+    <div class="affil__row">
+      <a class="affil__sjc" href="{{ site.collegeUrl }}" title="{{ site.college }}, Oxford">
+        <img src="{{ '/assets/img/logo-sjc.png' | url }}" alt="St John's College, Oxford" width="119" height="150"></a>
+      <a class="affil__dpir" href="{{ site.departmentUrl }}" title="{{ site.department }}">
+        <img src="{{ '/assets/img/logo-dpir.png' | url }}" alt="Department of Politics and International Relations, University of Oxford" width="389" height="150"></a>
+      <a class="affil__oms" href="https://www.oxfordmartin.ox.ac.uk" title="Oxford Martin School">
+        <img src="{{ '/assets/img/logo-martin.png' | url }}" alt="Oxford Martin School" width="150" height="150"></a>
+      <a class="affil__aigi" href="https://aigi.ox.ac.uk/" title="Oxford Martin AI Governance Initiative">
+        <img src="{{ '/assets/img/logo-aigi.png' | url }}" alt="Oxford Martin AI Governance Initiative" width="241" height="150"></a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap footer__inner">
+    <span>&copy; {{ buildYear }} {{ site.name }} &middot; {{ site.university }}</span>
+    <div class="social">
+      <a href="mailto:{{ site.email }}" title="Email" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20v16H2V4zm2 2v.5l8 5 8-5V6H4zm16 3.2-7.5 4.7a1 1 0 0 1-1 0L4 9.2V18h16V9.2z"/></svg></a>
+      <a href="{{ site.orcid }}" title="ORCID" aria-label="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zM7.4 18.2H5.6V7.5h1.8v10.7zM6.5 6.4a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2zm5 11.8h-1.8V7.5h4.1c3.4 0 5 2.2 5 5.4 0 3.2-1.9 5.3-5.3 5.3h-2zm0-1.7h1.9c2.4 0 3.5-1.5 3.5-3.6s-1-3.7-3.4-3.7h-2v7.3z"/></svg></a>
+      <a href="{{ site.scholar }}" title="Google Scholar" aria-label="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 0 9l12 7 9.5-5.5V17H24V9L12 2zM5 14.2V18c0 2.2 3.1 4 7 4s7-1.8 7-4v-3.8l-7 4.1-7-4.1z"/></svg></a>
+      <a href="{{ site.github }}" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7 0-.7 0-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.5 4.7 18.5 5 18.5 5c.7 1.7.2 2.9.1 3.3.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile navigation
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (!toggle || !nav) return;
+    var mq = window.matchMedia('(max-width: 900px)');
+    function sync() {
+      if (mq.matches) { nav.hidden = true; toggle.setAttribute('aria-expanded', 'false'); }
+      else { nav.hidden = false; }
+    }
+    sync();
+    mq.addEventListener('change', sync);
+    toggle.addEventListener('click', function () {
+      var open = nav.hidden;
+      nav.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A' && mq.matches) {
+        nav.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

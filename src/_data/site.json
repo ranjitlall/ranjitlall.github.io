@@ -1,0 +1,25 @@
+{
+  "name": "Ranjit Lall",
+  "role": "Professor of International Political Economy",
+  "url": "https://ranjitlall.github.io",
+  "description": "Ranjit Lall is Professor of International Political Economy at the University of Oxford and Director of the Centre for Technology and Society.",
+  "university": "University of Oxford",
+  "department": "Department of Politics and International Relations",
+  "departmentUrl": "https://www.politics.ox.ac.uk/",
+  "college": "St John's College",
+  "collegeUrl": "https://www.sjc.ox.ac.uk/",
+  "centre": "Centre for Technology and Society",
+  "centreUrl": "https://ranjitlall.github.io/cts-website/",
+  "email": "ranjit.lall@sjc.ox.ac.uk",
+  "orcid": "https://orcid.org/0000-0003-1455-3506",
+  "scholar": "https://scholar.google.com/citations?user=kU-dBbUAAAAJ&hl=en",
+  "github": "https://github.com/ranjitlall",
+  "cv": "/assets/pdf/CV_Website_Aug2026.pdf",
+  "locale": "en_GB",
+  "address": {
+    "line1": "N4-3 St John's College",
+    "line2": "St Giles', Oxford",
+    "line3": "OX1 3JP",
+    "line4": "United Kingdom"
+  }
+}

@@ -1,0 +1,31 @@
+{# Renders one publication row. Used by the home page and the research page so
+   the two can never drift apart. #}
+{% macro entry(p) %}
+      <li class="pub">
+        {% if p.abbr %}<span class="badge badge--{{ p.abbr | lower }}">{{ p.abbr }}</span>{% endif %}
+        <div>
+          <h3 class="pub__title">{{ p.title }}</h3>
+          <p class="pub__authors">
+            {%- for a in p.authors -%}
+              {%- if loop.index0 > 0 %}{% if loop.last %}{% if p.authors.length > 2 %},{% endif %} and {% else %}, {% endif %}{% endif -%}
+              {%- if a == "Ranjit Lall" -%}<em>{{ a }}</em>{%- else -%}{{ a }}{%- endif -%}
+            {%- endfor -%}
+          </p>
+          <p class="pub__venue">
+            {%- if p.note -%}{{ p.note | safe }}
+            {%- else -%}
+              {%- if p.venue.prefix %}{{ p.venue.prefix }}{% endif -%}
+              {%- if p.venue.italic %}<em>{{ p.venue.italic }}</em>{% endif -%}
+              {{ p.venue.rest }}{% if p.year %}, {{ p.year }}{% endif %}
+            {%- endif -%}
+          </p>
+          <div class="pub__actions">
+            {% if p.html %}<a href="{{ p.html }}">Publisher</a>{% endif %}
+            {% if p.pdf %}<a href="{{ p.pdf | url }}">PDF</a>{% endif %}
+            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}
+            {% if p.abstract %}<details class="abs"><summary>Abstract</summary><p>{{ p.abstract }}</p></details>{% endif %}
+            {% if p.showBibtex %}<details class="bib"><summary>BibTeX</summary><pre>{{ p.bibtex }}</pre></details>{% endif %}
+          </div>
+        </div>
+      </li>
+{% endmacro %}
