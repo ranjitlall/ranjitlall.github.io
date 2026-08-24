@@ -94,7 +94,7 @@ function venue(type, f) {
   if (type === "article") {
     let out = f.journal || "";
     const bits = [];
-    if (f.volume) bits.push(f.volume);
+    if (f.volume) bits.push(` ${f.volume}`); // leading space: "Journal 120(3)"
     if (f.number) bits.push(`(${f.number})`);
     if (f.pages) bits.push(`, ${f.pages.replace(/--/g, "\u2013")}`);
     return { italic: out, rest: bits.join("") };
@@ -106,7 +106,9 @@ function venue(type, f) {
       prefix: "In ",
     };
   }
-  return { italic: "", rest: f.publisher || "" };
+  // @misc entries (policy reports, preprints) carry the outlet in archivePrefix,
+  // the convention al-folio used. Fall back through the plausible fields.
+  return { italic: "", rest: f.archiveprefix || f.publisher || f.journal || "" };
 }
 
 function load(file) {

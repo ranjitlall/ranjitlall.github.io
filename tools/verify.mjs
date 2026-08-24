@@ -113,8 +113,32 @@ withToggle.length === 0
   ? pass("no nav-toggle button in any page")
   : fail(`nav-toggle present in ${withToggle.length} page(s)`);
 
-// ---- 8. CV redirect ------------------------------------------------------
-console.log("\n8. CV redirect");
+// ---- 8. Every class used in a template has a stylesheet rule -------------
+// This catches the whole family of "markup ported without its CSS" bugs that
+// produced the visible skip link and the stray mobile-menu button.
+console.log("\n8. No unstyled classes");
+const css = fs.readFileSync(path.join(process.cwd(), "assets/css/style.css"), "utf8");
+const styled = new Set([...css.matchAll(/\.([a-zA-Z][\w-]*)/g)].map((m) => m[1]));
+const usedClasses = new Set();
+(function walkSrc(dir) {
+  for (const f of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, f.name);
+    if (f.isDirectory()) walkSrc(full);
+    else if (f.name.endsWith(".njk")) {
+      const t = fs.readFileSync(full, "utf8");
+      for (const m of t.matchAll(/class="([^"{}]+)"/g)) {
+        for (const c of m[1].split(/\s+/)) if (c) usedClasses.add(c);
+      }
+    }
+  }
+})(path.join(process.cwd(), "src"));
+const unstyled = [...usedClasses].filter((c) => !styled.has(c)).sort();
+unstyled.length === 0
+  ? pass(`${usedClasses.size} classes, all styled`)
+  : unstyled.forEach((c) => fail(`class "${c}" has no stylesheet rule`));
+
+// ---- 9. CV redirect ------------------------------------------------------
+console.log("\n9. CV redirect");
 const cv = fs.readFileSync(path.join(SITE, "cv/index.html"), "utf8");
 cv.includes("/assets/pdf/CV_Website_Aug2026.pdf")
   ? pass("redirects to the CV PDF")
