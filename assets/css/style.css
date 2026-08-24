@@ -122,6 +122,13 @@ strong{font-weight:600;color:var(--navy)}
 .nav a{font-family:var(--display);font-size:1.02rem;font-weight:600;letter-spacing:-.005em;
   color:var(--navy);text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent}
 .nav a:hover{border-bottom-color:var(--verdigris);color:var(--verdigris)}
+/* No mobile menu button: with five short items the nav simply wraps onto a
+   second line on narrow screens, which needs no JavaScript and cannot break. */
+@media(max-width:760px){
+  .site-header__inner{gap:.6rem;padding-block:.5rem}
+  .nav{gap:.5rem .9rem;width:100%}
+  .nav a{font-size:.95rem}
+}
 
 /* ---- Hero ---- */
 .hero{position:relative;overflow:hidden;background:var(--hero-bg);

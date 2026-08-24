@@ -20,7 +20,7 @@
             {%- endif -%}
           </p>
           <div class="pub__actions">
-            {% if p.html %}<a href="{{ p.html }}">Publisher</a>{% endif %}
+            {% if p.html %}<a href="{{ p.html }}">{{ p.htmlLabel }}</a>{% endif %}
             {% if p.pdf %}<a href="{{ p.pdf | url }}">PDF</a>{% endif %}
             {% if p.doi %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}
             {% if p.abstract %}<details class="abs"><summary>Abstract</summary><p>{{ p.abstract }}</p></details>{% endif %}

@@ -106,8 +106,15 @@ reviews === 7 ? pass("7 reviews") : fail(`expected 7 reviews, got ${reviews}`);
 book.includes("Jan Klabbers") ? pass("Klabbers attributed") : fail("Klabbers missing");
 book.includes("aiddata.org/blog") ? pass("AidData link") : fail("AidData link missing");
 
-// ---- 7. CV redirect ------------------------------------------------------
-console.log("\n7. CV redirect");
+// ---- 7. No unstyled leftovers -------------------------------------------
+console.log("\n7. No leftover mobile-menu button");
+const withToggle = pages.filter((f) => fs.readFileSync(f, "utf8").includes("nav-toggle"));
+withToggle.length === 0
+  ? pass("no nav-toggle button in any page")
+  : fail(`nav-toggle present in ${withToggle.length} page(s)`);
+
+// ---- 8. CV redirect ------------------------------------------------------
+console.log("\n8. CV redirect");
 const cv = fs.readFileSync(path.join(SITE, "cv/index.html"), "utf8");
 cv.includes("/assets/pdf/CV_Website_Aug2026.pdf")
   ? pass("redirects to the CV PDF")

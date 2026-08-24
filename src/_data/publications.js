@@ -7,6 +7,7 @@
 //   abstract     shown behind the "Abstract" toggle
 //   bibtex_show  set to true to show the "BibTeX" toggle
 //   html         link to the publisher's page
+//   html_label   label for that link (default "Publisher")
 //   pdf          filename inside assets/pdf/, or a full URL
 //   selected     set to true to feature it on the home page
 
@@ -124,6 +125,7 @@ function load(file) {
       note: f.note || "",
       abstract: f.abstract || "",
       html: f.html || "",
+      htmlLabel: f.html_label || "Publisher",
       doi: f.doi || "",
       pdf: f.pdf ? (f.pdf.includes("://") ? f.pdf : `/assets/pdf/${f.pdf}`) : "",
       url: f.url || "",
