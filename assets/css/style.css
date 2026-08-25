@@ -224,11 +224,21 @@ strong{font-weight:600;color:var(--navy)}
 .btn--sm{font-size:.78rem;padding:.34rem .8rem;border-radius:100px}
 
 /* ---- About + affiliation chips ---- */
-/* The hero and About are meant to fit a laptop screen together on load, so
-   About runs tighter than the sections below it. If it still overruns on your
-   display, reduce --about-y and the paragraph size here. */
-#about{--about-y:clamp(1.4rem,2.3vw,2rem);padding-block:var(--about-y)}
-#about p{font-size:.96rem;line-height:1.5;margin-bottom:.6em}
+/* The hero and About together are meant to fill exactly one screen on load.
+   Rather than guessing a pixel height, the pair is given a minimum height of
+   the viewport less the strip and header above them, and About absorbs whatever
+   space is left over — so it lands correctly on any display, not just one.
+   --topchrome is the height of the accent bar, Oxford strip and site header.
+   Below 900px wide, fitting one screen is not realistic, so the rule is off. */
+.firstscreen{--topchrome:7rem}
+@media(min-width:900px) and (min-height:640px){
+  .firstscreen{min-height:calc(100svh - var(--topchrome));display:flex;flex-direction:column}
+  .firstscreen > .hero{flex:0 0 auto}
+  .firstscreen > #about{flex:1 1 auto;display:flex;align-items:center}
+  .firstscreen > #about > .wrap{width:100%}
+}
+#about{--about-y:clamp(1.6rem,2.6vw,2.4rem);padding-block:var(--about-y)}
+#about p{font-size:.98rem;line-height:1.54;margin-bottom:.65em}
 #about h2{font-size:clamp(1.35rem,1.05rem+1.2vw,1.8rem);margin-bottom:.35em}
 .about__grid{display:grid;gap:clamp(1.25rem,2.5vw,2.25rem)}
 @media(min-width:900px){.about__grid{grid-template-columns:1.4fr .6fr;align-items:start}}
@@ -524,14 +534,15 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 
 /* endorsements */
 .quotes{display:grid;gap:.7rem;grid-template-columns:1fr}
+/* Two columns, never four. The two long endorsements are last, so they share a
+   row and wrap at roughly 60 characters instead of becoming tall thin strips. */
 @media(min-width:760px){.quotes{grid-template-columns:1fr 1fr}}
-@media(min-width:1080px){.quotes{grid-template-columns:repeat(4,1fr)}}
 .quote{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--gold);
-  border-radius:4px;padding:.8rem .95rem}
+  border-radius:4px;padding:.95rem 1.15rem}
 .quote:nth-child(2){border-left-color:var(--coral)}
 .quote:nth-child(3){border-left-color:var(--cyan)}
 .quote:nth-child(4){border-left-color:var(--violet)}
-.quote blockquote{margin:0 0 .5rem;font-family:var(--display);font-size:.86rem;
+.quote blockquote{margin:0 0 .5rem;font-family:var(--display);font-size:.9rem;
   font-style:italic;color:var(--navy);line-height:1.38}
 .quote figcaption{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--slate)}
