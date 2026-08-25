@@ -66,12 +66,28 @@ leaked === 0 ? pass("no subpath on internal paths") : fail(`${leaked} page(s) ca
 // ---- 4. Publications actually rendered ----------------------------------
 console.log("\n4. Bibliography rendered into the research page");
 const research = fs.readFileSync(path.join(SITE, "research/index.html"), "utf8");
+// Count what is actually in the .bib files rather than hardcoding a number,
+// so adding a publication does not require editing this script.
+const bibDir = path.join(process.cwd(), "_bibliography");
+let expected = 0, expectedAbs = 0, expectedBib = 0;
+for (const f of fs.readdirSync(bibDir).filter((n) => n.endsWith(".bib"))) {
+  const text = fs.readFileSync(path.join(bibDir, f), "utf8");
+  expected += (text.match(/^@\w+\s*\{/gm) || []).length;
+  expectedAbs += (text.match(/^\s*abstract\s*=/gm) || []).length;
+  expectedBib += (text.match(/^\s*bibtex_show\s*=\s*\{true\}/gm) || []).length;
+}
 const entries = (research.match(/<li class="pub">/g) || []).length;
 const abstracts = (research.match(/<details class="abs">/g) || []).length;
 const bibtex = (research.match(/<details class="bib">/g) || []).length;
-entries === 24 ? pass(`${entries} publication entries`) : fail(`expected 24 entries, got ${entries}`);
-abstracts >= 21 ? pass(`${abstracts} abstracts`) : fail(`only ${abstracts} abstracts`);
-bibtex >= 23 ? pass(`${bibtex} BibTeX blocks`) : fail(`only ${bibtex} BibTeX blocks`);
+entries === expected
+  ? pass(`${entries} publication entries (matches the .bib files)`)
+  : fail(`.bib files hold ${expected} entries but the page rendered ${entries}`);
+abstracts === expectedAbs
+  ? pass(`${abstracts} abstracts`)
+  : fail(`expected ${expectedAbs} abstracts, rendered ${abstracts}`);
+bibtex === expectedBib
+  ? pass(`${bibtex} BibTeX blocks`)
+  : fail(`expected ${expectedBib} BibTeX blocks, rendered ${bibtex}`);
 
 for (const needle of [
   "Consequences of the Black Sea Slave Trade",

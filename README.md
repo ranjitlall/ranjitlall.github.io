@@ -15,7 +15,10 @@ else needs editing — the site reads these files at build time.
 | `books.bib` | Book |
 | `papers.bib` | Articles and book chapters, grouped by year |
 | `policy_reports.bib` | Policy reports |
-| `working_papers.bib` | Forthcoming, shown above the published list |
+| `working_papers.bib` | Working papers, shown above the published list |
+
+Published work is grouped by year automatically. Working papers appear **in the
+order they sit in the file**, so put the newest at the top.
 
 Journals give you the BibTeX ready-made — look for "Cite" or "Export citation".
 Then add these extra fields, which publishers don't supply:

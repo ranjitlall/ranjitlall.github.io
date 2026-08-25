@@ -448,8 +448,8 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .pubcount{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--slate)}
 .bookrow{display:grid;gap:.9rem;grid-template-columns:1fr;align-items:start}
-@media(min-width:700px){.bookrow{grid-template-columns:1fr 116px}}
-.bookrow__cover{width:116px;max-width:100%;border:1px solid var(--rule);border-radius:2px;
+@media(min-width:700px){.bookrow{grid-template-columns:1fr 128px}}
+.bookrow__cover{width:128px;max-width:100%;border:1px solid var(--rule);border-radius:2px;
   box-shadow:0 8px 20px rgba(0,33,71,.2)}
 .bookrow .pubs{margin:0}
 .bookrow .pub{padding-bottom:0;border-bottom:0}

@@ -47,7 +47,7 @@ description: Books, journal articles, chapters, and policy reports by Ranjit Lal
       <p class="pubcount">{{ publications.counts.papers + publications.counts.working }} items</p>
     </div>
 {% if publications.working.length %}
-    <p class="yr">Forthcoming</p>
+    <p class="yr">Working papers</p>
     <ol class="pubs">
 {% for p in publications.working %}{{ pub.entry(p) }}{% endfor %}
     </ol>

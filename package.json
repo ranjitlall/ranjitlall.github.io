@@ -6,7 +6,8 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "check": "eleventy && node tools/verify.mjs"
+    "check": "eleventy && node tools/verify.mjs",
+    "preview": "eleventy && node tools/preview.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6"
