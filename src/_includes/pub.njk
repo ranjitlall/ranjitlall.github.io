@@ -23,6 +23,7 @@
             {% if p.html %}<a href="{{ p.html }}">{{ p.htmlLabel }}</a>{% endif %}
             {% if p.pdf %}<a href="{{ p.pdf | url }}">PDF</a>{% endif %}
             {% if p.doi %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}
+            {% for l in p.extraLinks %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}
             {% if p.abstract %}<details class="abs"><summary>Abstract</summary><p>{{ p.abstract }}</p></details>{% endif %}
             {% if p.showBibtex %}<details class="bib"><summary>BibTeX</summary><pre>{{ p.bibtex }}</pre></details>{% endif %}
           </div>

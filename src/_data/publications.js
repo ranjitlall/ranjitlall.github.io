@@ -8,6 +8,8 @@
 //   bibtex_show  set to true to show the "BibTeX" toggle
 //   html         link to the publisher's page
 //   html_label   label for that link (default "Publisher")
+//   link2..link4 extra links, each with a matching link2_label etc.
+//                e.g. link2={https://...}  link2_label={CTS Working Paper}
 //   pdf          filename inside assets/pdf/, or a full URL
 //   selected     set to true to feature it on the home page
 
@@ -128,6 +130,10 @@ function load(file) {
       abstract: f.abstract || "",
       html: f.html || "",
       htmlLabel: f.html_label || "Publisher",
+      // link2, link3, link4 — optional extra links, each with its own label
+      extraLinks: [2, 3, 4]
+        .filter((n) => f[`link${n}`])
+        .map((n) => ({ url: f[`link${n}`], label: f[`link${n}_label`] || "Link" })),
       doi: f.doi || "",
       pdf: f.pdf ? (f.pdf.includes("://") ? f.pdf : `/assets/pdf/${f.pdf}`) : "",
       url: f.url || "",
