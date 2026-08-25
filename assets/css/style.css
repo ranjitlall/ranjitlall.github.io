@@ -24,7 +24,7 @@
   --mono:"IBM Plex Mono",ui-monospace,monospace;
   --measure:68ch; --wrap:1120px;
   --gutter:clamp(1.25rem,4vw,3rem);
-  --section-y:clamp(1.9rem,3.2vw,2.9rem);
+  --section-y:clamp(2.5rem,4.2vw,3.8rem);
 
   /* Hero and panel tints. These were a switchable palette during design; the
      navy hero was chosen, so its values now live here as the only palette. */
@@ -85,7 +85,7 @@ strong{font-weight:600;color:var(--navy)}
 #contact{background:#fdf7ea}
 /* abstract panels need to sit on whatever the section colour is */
 #publications details.abs p{background:#fff}
-.section-head{max-width:56ch;margin-bottom:clamp(1rem,1.8vw,1.4rem)}
+.section-head{max-width:56ch;margin-bottom:clamp(1.25rem,2.2vw,1.8rem)}
 .section-head p{color:var(--slate)}
 /* a short gradient rule under each section heading, tinted per section */
 .section-head h2::after{content:"";display:block;width:76px;height:4px;border-radius:100px;
@@ -237,7 +237,10 @@ strong{font-weight:600;color:var(--navy)}
   .firstscreen > #about{flex:1 1 auto;display:flex;align-items:center}
   .firstscreen > #about > .wrap{width:100%}
 }
-#about{--about-y:clamp(1.6rem,2.6vw,2.4rem);padding-block:var(--about-y)}
+/* --about-y is only a floor. On a roomy screen About flex-grows to fill the
+   space left under the hero, so keeping the minimum low costs nothing there
+   and stops the pair overflowing a short laptop screen. */
+#about{--about-y:clamp(1.35rem,2.1vw,2rem);padding-block:var(--about-y)}
 #about p{font-size:.98rem;line-height:1.54;margin-bottom:.65em}
 #about h2{font-size:clamp(1.35rem,1.05rem+1.2vw,1.8rem);margin-bottom:.35em}
 .about__grid{display:grid;gap:clamp(1.25rem,2.5vw,2.25rem)}
@@ -252,7 +255,7 @@ strong{font-weight:600;color:var(--navy)}
 .chip a:hover{color:var(--verdigris);border-bottom-color:var(--verdigris)}
 
 /* ---- Research themes ---- */
-.themes{display:grid;gap:clamp(.6rem,1.1vw,.85rem);grid-template-columns:1fr}
+.themes{display:grid;gap:clamp(.75rem,1.3vw,1.05rem);grid-template-columns:1fr}
 @media(min-width:760px){.themes{grid-template-columns:1fr 1fr}}
 .theme{background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--gold);
   border-radius:4px;padding:clamp(.75rem,1.3vw,1rem)}
@@ -284,12 +287,12 @@ strong{font-weight:600;color:var(--navy)}
   font-family:var(--display);font-size:1.05rem;font-style:italic;color:var(--navy);max-width:56ch}
 
 /* ---- Publication entries ---- */
-.pubs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.9rem}
+.pubs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.15rem}
 .pubs-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--slate);margin:0 0 1.2rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule)}
 .pubs + .pubs-label{margin-top:2.6rem}
 .pub{display:grid;gap:.4rem 1.4rem;grid-template-columns:1fr;
-  padding-bottom:.9rem;border-bottom:1px solid var(--rule)}
+  padding-bottom:1.15rem;border-bottom:1px solid var(--rule)}
 .pub:last-child{border-bottom:0;padding-bottom:0}
 @media(min-width:760px){.pub{grid-template-columns:5.5rem 1fr}}
 .badge{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:500;
@@ -336,7 +339,7 @@ details.abs p{margin-top:.9rem;font-size:.93rem;color:var(--slate);
   background:var(--tint);padding:1rem 1.15rem;border-radius:4px;max-width:none}
 
 /* ---- Data / software cards ---- */
-.cards{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+.cards{display:grid;gap:1.05rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
 .card{background:var(--paper);border:1px solid var(--rule);border-radius:4px;
   padding:1rem 1.15rem;display:flex;flex-direction:column}
 .card h3{font-size:1.05rem;margin-bottom:.4rem;font-weight:700}
@@ -376,7 +379,7 @@ details.abs p{margin-top:.9rem;font-size:.93rem;color:var(--slate);
 address{font-style:normal;color:var(--slate);font-size:.95rem;line-height:1.7}
 
 /* ---- Footer ---- */
-.affil{background:var(--paper);border-top:1px solid var(--rule);padding-block:1.6rem}
+.affil{background:var(--paper);border-top:1px solid var(--rule);padding-block:2.1rem}
 .affil__label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--slate);text-align:center;margin:0 0 1rem;max-width:none}
 .affil__row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
@@ -388,7 +391,7 @@ address{font-style:normal;color:var(--slate);font-size:.95rem;line-height:1.7}
 .affil__dpir img{height:34px}
 .affil__oms img{height:52px}
 .affil__aigi img{height:38px}
-.site-footer{background:var(--navy-deep);color:#9db4cc;padding-block:1.9rem;font-size:.88rem}
+.site-footer{background:var(--navy-deep);color:#9db4cc;padding-block:2.4rem;font-size:.88rem}
 .site-footer a{color:#cfdae6;text-decoration:none}
 .site-footer a:hover{color:var(--gold)}
 .footer__inner{display:flex;justify-content:space-between;gap:1.5rem;
@@ -402,7 +405,7 @@ address{font-style:normal;color:var(--slate);font-size:.95rem;line-height:1.7}
 /* ---- Interior page chrome ---- */
 .pagehero{position:relative;overflow:hidden;
   background:linear-gradient(160deg,#002147 0%,#001730 100%);
-  color:#c3d3e4;padding-block:clamp(1.5rem,2.6vw,2.2rem)}
+  color:#c3d3e4;padding-block:clamp(1.9rem,3.2vw,2.8rem)}
 .pagehero > .wrap{position:relative;z-index:1}
 .pagehero h1{color:#fff;font-size:clamp(1.8rem,1.3rem+1.9vw,2.6rem);margin-bottom:.35rem}
 .pagehero .hero__kicker{color:var(--gold);margin-bottom:.5rem}
@@ -424,7 +427,7 @@ address{font-style:normal;color:var(--slate);font-size:.95rem;line-height:1.7}
 
 /* ---- Publication list ---- */
 .yr{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--slate);margin:1.5rem 0 .6rem;padding-bottom:.3rem;border-bottom:1px solid var(--rule)}
+  color:var(--slate);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--rule)}
 .yr:first-of-type{margin-top:0}
 .pub__title{font-size:1.02rem}
 /* One row of controls. A closed <details> sits inline with the links; an open one
@@ -453,11 +456,11 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
   box-shadow:0 8px 20px rgba(0,33,71,.2)}
 .bookrow .pubs{margin:0}
 .bookrow .pub{padding-bottom:0;border-bottom:0}
-#book{padding-block:clamp(1.3rem,2.2vw,1.9rem)}
+#book{padding-block:clamp(1.8rem,3vw,2.6rem)}
 #book .eyebrow{margin-bottom:.5rem}
 
 /* ---- Data page ---- */
-.ds{display:grid;gap:.9rem}
+.ds{display:grid;gap:1.1rem}
 .dataset{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--verdigris);
   border-radius:4px;padding:1rem 1.2rem}
 .dataset:nth-child(2){border-left-color:var(--coral)}
@@ -469,7 +472,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .dataset h3 a:hover{color:var(--verdigris)}
 .dataset p{font-size:.9rem;color:var(--slate);margin-bottom:.6rem;max-width:78ch}
 .dataset__meta{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
-.pkg{display:grid;gap:.55rem}
+.pkg{display:grid;gap:.7rem}
 .pkgrow{display:flex;flex-wrap:wrap;gap:.5rem .9rem;align-items:baseline;background:#fff;
   border:1px solid var(--rule);border-radius:4px;padding:.6rem .95rem}
 .pkgrow__n{font-family:var(--display);font-weight:700;font-size:.95rem}
@@ -525,7 +528,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .factbox dd{margin:0 0 .45rem;font-size:.86rem;color:var(--ink);
   padding-bottom:.45rem;border-bottom:1px solid var(--rule)}
 .factbox dd:last-child{border-bottom:0;margin-bottom:0}
-.chapters{display:grid;gap:.55rem;grid-template-columns:1fr}
+.chapters{display:grid;gap:.7rem;grid-template-columns:1fr}
 @media(min-width:760px){.chapters{grid-template-columns:1fr 1fr}}
 .chapter{display:flex;gap:.75rem;align-items:baseline;background:#fff;
   border:1px solid var(--rule);border-radius:4px;padding:.55rem .9rem}
@@ -533,7 +536,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .chapter__t{font-size:.88rem;color:var(--ink);margin:0;max-width:none}
 
 /* endorsements */
-.quotes{display:grid;gap:.7rem;grid-template-columns:1fr}
+.quotes{display:grid;gap:1rem;grid-template-columns:1fr}
 /* Two columns, never four. The two long endorsements are last, so they share a
    row and wrap at roughly 60 characters instead of becoming tall thin strips. */
 @media(min-width:760px){.quotes{grid-template-columns:1fr 1fr}}
@@ -548,7 +551,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
   text-transform:uppercase;color:var(--slate)}
 
 /* reviews list */
-.reviews{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+.reviews{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
 .review{background:#fff;border:1px solid var(--rule);border-radius:4px;padding:.6rem .95rem}
 .review__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .9rem}
 .review__q{margin:.5rem 0 0;font-family:var(--display);font-style:italic;font-size:.92rem;
@@ -563,7 +566,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
   letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
 
 /* launch event */
-.press{display:grid;gap:.6rem}
+.press{display:grid;gap:.75rem}
 .presslink{display:flex;flex-wrap:wrap;gap:.35rem .9rem;align-items:baseline;background:#fff;
   border:1px solid var(--rule);border-left:4px solid var(--cyan);border-radius:4px;
   padding:.7rem 1rem;text-decoration:none}
