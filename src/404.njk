@@ -3,7 +3,9 @@ layout: layouts/base.njk
 title: Page not found
 permalink: /404.html
 ---
+{% import "motif.njk" as motif %}
 <section class="pagehero">
+  {{ motif.motif("pale", "pagehero__motif") }}
   <div class="wrap">
     <span class="hero__kicker">404</span>
     <h1>Page not found</h1>

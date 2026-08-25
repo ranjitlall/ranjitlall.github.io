@@ -1,0 +1,68 @@
+{# The globe motif — a wireframe sphere with a graduated arc, echoing the
+   armillary sphere on the book cover.
+
+   Two variants:
+     accent  white graticule with a single gold equator and arc — home page hero
+     pale    white and grey throughout — the shorter interior page bands
+
+   The latitude and longitude ellipses are positioned as a real sphere tilted
+   14 degrees, so the lines actually converge toward the poles. Both variants
+   animate in gently, with a prefers-reduced-motion fallback in the stylesheet. #}
+
+{% macro motif(variant="accent", cls="hero__motif") %}
+{% if variant == "pale" %}
+  {% set band = "#ffffff" %}{% set bandOp = ".6" %}{% set bandW = "1.7" %}
+  {% set arc = "#ffffff" %}{% set arcOp = ".42" %}
+  {% set lineOp = ".26" %}{% set panelOp = ".026" %}{% set rimOp = ".4" %}
+  {% set glowOp = ".12" %}
+  {% set nA = "#ffffff" %}{% set nB = "#dbe6f2" %}{% set nC = "#c3d3e4" %}
+{% else %}
+  {% set band = "#f7c65a" %}{% set bandOp = ".95" %}{% set bandW = "2.1" %}
+  {% set arc = "#f7c65a" %}{% set arcOp = ".6" %}
+  {% set lineOp = ".32" %}{% set panelOp = ".03" %}{% set rimOp = ".58" %}
+  {% set glowOp = ".16" %}
+  {% set nA = "#f7c65a" %}{% set nB = "#ffffff" %}{% set nC = "#ffffff" %}
+{% endif %}
+  <svg class="{{ cls }}" viewBox="0 0 420 420" aria-hidden="true">
+    <defs>
+      <radialGradient id="glow-{{ variant }}" cx="36%" cy="30%" r="76%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="{{ glowOp }}"/>
+        <stop offset="60%" stop-color="#ffffff" stop-opacity=".05"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <circle class="m-glow" cx="210" cy="210" r="198" fill="url(#glow-{{ variant }})"/>
+
+    <g class="m-panels" transform="rotate(-14 210 210)">
+        <ellipse cx="210" cy="210" rx="196.0" ry="196" fill="#ffffff" fill-opacity="{{ panelOp }}" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.2"/>
+        <ellipse cx="210" cy="210" rx="169.7" ry="196" fill="#ffffff" fill-opacity="{{ panelOp }}" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.2"/>
+        <ellipse cx="210" cy="210" rx="98.0" ry="196" fill="#ffffff" fill-opacity="{{ panelOp }}" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.2"/>
+        <ellipse cx="210" cy="210" rx="1.2" ry="196" fill="#ffffff" fill-opacity="{{ panelOp }}" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.2"/>
+        <ellipse cx="210" cy="210" rx="98.0" ry="196" fill="#ffffff" fill-opacity="{{ panelOp }}" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.2"/>
+        <ellipse cx="210" cy="210" rx="169.7" ry="196" fill="#ffffff" fill-opacity="{{ panelOp }}" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.2"/>
+        <ellipse cx="210" cy="372.1" rx="98.0" ry="29.4" fill="none" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.15"/>
+        <ellipse cx="210" cy="303.6" rx="169.7" ry="50.9" fill="none" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.15"/>
+        <ellipse cx="210" cy="210.0" rx="196.0" ry="58.8" fill="none" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.15"/>
+        <ellipse cx="210" cy="116.4" rx="169.7" ry="50.9" fill="none" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.15"/>
+        <ellipse cx="210" cy="47.9" rx="98.0" ry="29.4" fill="none" stroke="#ffffff" stroke-opacity="{{ lineOp }}" stroke-width="1.15"/>
+    </g>
+
+    <g class="m-rings" fill="none" stroke-linecap="round">
+      <circle cx="210" cy="210" r="196" stroke="#ffffff" stroke-opacity="{{ rimOp }}" stroke-width="1.7"/>
+      <ellipse cx="210" cy="210" rx="196" ry="66" stroke="{{ band }}" stroke-opacity="{{ bandOp }}" stroke-width="{{ bandW }}" transform="rotate(-18 210 210)"/>
+      <ellipse cx="210" cy="210" rx="196" ry="116" stroke="#ffffff" stroke-opacity=".38" stroke-width="1.2" transform="rotate(26 210 210)"/>
+      <circle cx="210" cy="210" r="205" stroke="{{ arc }}" stroke-opacity="{{ arcOp }}" stroke-width="2.4" stroke-dasharray="1.8 11" transform="rotate(-8 210 210)"/>
+    </g>
+
+    <line class="m-axis" x1="210" y1="4" x2="210" y2="416" stroke="#ffffff" stroke-opacity=".16" stroke-width=".9" transform="rotate(-14 210 210)"/>
+
+    <g>
+      <circle class="m-node" cx="24" cy="150" r="5" fill="{{ nA }}"/>
+      <circle class="m-node" cx="392" cy="268" r="4.5" fill="{{ nB }}"/>
+      <circle class="m-node" cx="286" cy="24" r="3.6" fill="{{ nC }}"/>
+      <circle class="m-node" cx="126" cy="401" r="3.8" fill="{{ nA }}"/>
+      <circle class="m-node" cx="405" cy="160" r="2.8" fill="#ffffff" fill-opacity=".6"/>
+    </g>
+  </svg>
+{% endmacro %}

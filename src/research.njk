@@ -5,8 +5,10 @@ permalink: /research/index.html
 description: Books, journal articles, chapters, and policy reports by Ranjit Lall.
 ---
 {% import "pub.njk" as pub %}
+{% import "motif.njk" as motif %}
 
 <section class="pagehero">
+  {{ motif.motif("pale", "pagehero__motif") }}
   <div class="wrap">
     <span class="hero__kicker">Publications</span>
     <h1>Research</h1>
@@ -23,7 +25,7 @@ description: Books, journal articles, chapters, and policy reports by Ranjit Lal
 
 <section class="section" id="book">
   <div class="wrap">
-    <div class="section-head"><span class="eyebrow">Book</span><h2>Book</h2></div>
+    <span class="eyebrow">Book</span>
     <div class="bookrow">
       <div>
         <ol class="pubs">

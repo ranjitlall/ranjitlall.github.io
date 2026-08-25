@@ -3,51 +3,9 @@ layout: layouts/base.njk
 permalink: /index.html
 ---
 {% import "pub.njk" as pub %}
+{% import "motif.njk" as motif %}
 <section class="hero">
-  <svg class="hero__motif" viewBox="0 0 420 420" aria-hidden="true">
-  <defs>
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#4a9e8d" stop-opacity=".16"/>
-      <stop offset="70%" stop-color="#4a9e8d" stop-opacity=".05"/>
-      <stop offset="100%" stop-color="#4a9e8d" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-
-  <!-- soft core so the sphere reads as a body, not just wires -->
-  <circle class="m-glow" cx="210" cy="210" r="200" fill="url(#glow)"/>
-
-  <!-- shaded bands: the panels of the sphere -->
-  <g class="m-panels">
-    <ellipse cx="210" cy="210" rx="196" ry="66" fill="#f0b429" fill-opacity=".085" transform="rotate(-18 210 210)"/>
-    <ellipse cx="210" cy="210" rx="196" ry="116" fill="#4a9e8d" fill-opacity=".075" transform="rotate(26 210 210)"/>
-    <ellipse cx="210" cy="210" rx="196" ry="34" fill="#ffffff" fill-opacity=".05" transform="rotate(72 210 210)"/>
-    <circle cx="210" cy="210" r="150" fill="#ffffff" fill-opacity=".025"/>
-  </g>
-
-  <!-- rings -->
-  <g class="m-rings" fill="none" stroke-linecap="round">
-    <circle cx="210" cy="210" r="196" stroke="#ffffff" stroke-opacity=".22" stroke-width="1.2"/>
-    <ellipse cx="210" cy="210" rx="196" ry="66" stroke="#f7c65a" stroke-opacity=".85" stroke-width="1.5" transform="rotate(-18 210 210)"/>
-    <ellipse cx="210" cy="210" rx="196" ry="116" stroke="#63b8a6" stroke-opacity=".7" stroke-width="1.3" transform="rotate(26 210 210)"/>
-    <ellipse cx="210" cy="210" rx="196" ry="34" stroke="#ffffff" stroke-opacity=".28" stroke-width="1" transform="rotate(72 210 210)"/>
-    <circle cx="210" cy="210" r="150" stroke="#63b8a6" stroke-opacity=".3" stroke-width=".9"/>
-    <!-- graduated arc, echoing the degree scale on the book cover -->
-    <circle cx="210" cy="210" r="205" stroke="#f7c65a" stroke-opacity=".5" stroke-width="2.4" stroke-dasharray="1.6 11" transform="rotate(-8 210 210)"/>
-  </g>
-
-  <!-- polar axis -->
-  <line class="m-axis" x1="210" y1="4" x2="210" y2="416" stroke="#ffffff" stroke-opacity=".16" stroke-width=".9"
-        transform="rotate(-14 210 210)"/>
-
-  <!-- nodes riding the rings -->
-  <g>
-    <circle class="m-node" cx="24" cy="150" r="5" fill="#f7c65a"/>
-    <circle class="m-node" cx="392" cy="268" r="4.4" fill="#63b8a6"/>
-    <circle class="m-node" cx="286" cy="24" r="3.6" fill="#f2836d"/>
-    <circle class="m-node" cx="126" cy="401" r="3.8" fill="#5cc0e6"/>
-    <circle class="m-node" cx="405" cy="160" r="2.8" fill="#ffffff" fill-opacity=".6"/>
-  </g>
-</svg>
+  {{ motif.motif("accent", "hero__motif") }}
   <div class="wrap hero__inner">
     <div>
       <span class="hero__kicker">University of Oxford</span>
