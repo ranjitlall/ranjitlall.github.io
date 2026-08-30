@@ -166,10 +166,11 @@ permalink: /index.html
       <h2>Recent work</h2>
       <p>The full list &mdash; articles, chapters, and policy reports &mdash; lives on the research page.</p>
     </div>
-{% if publications.working.length %}
-    <p class="pubs-label">Working papers</p>
+{% set upcoming = publications.forthcoming.concat(publications.working) %}
+{% if upcoming.length %}
+    <p class="pubs-label">{% if publications.forthcoming.length %}Forthcoming &amp; working papers{% else %}Working papers{% endif %}</p>
     <ol class="pubs">
-{% for p in publications.working %}{{ pub.entry(p) }}{% endfor %}
+{% for p in upcoming %}{{ pub.entry(p) }}{% endfor %}
     </ol>
 {% endif %}
     <p class="pubs-label">Published</p>

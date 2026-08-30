@@ -15,10 +15,16 @@ else needs editing — the site reads these files at build time.
 | `books.bib` | Book |
 | `papers.bib` | Articles and book chapters, grouped by year |
 | `policy_reports.bib` | Policy reports |
-| `working_papers.bib` | Working papers, shown above the published list |
+| `forthcoming.bib` | Accepted or conditionally accepted, no issue yet — shown as "Forthcoming" above the year groups |
+| `working_papers.bib` | Preprints and unpublished work — its own section |
+| `policy_reports.bib` | Policy reports |
 
-Published work is grouped by year automatically. Working papers appear **in the
-order they sit in the file**, so put the newest at the top.
+Published work is grouped by year automatically. Forthcoming and working papers
+appear **in the order they sit in the file**, so put the newest at the top.
+
+The split between `forthcoming.bib` and `working_papers.bib` follows the CV: a
+conditionally accepted paper sits with the journal articles, while a preprint
+with no journal behind it gets its own section.
 
 Journals give you the BibTeX ready-made — look for "Cite" or "Export citation".
 Then add these extra fields, which publishers don't supply:

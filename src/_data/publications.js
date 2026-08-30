@@ -12,6 +12,14 @@
 //                e.g. link2={https://...}  link2_label={CTS Working Paper}
 //   pdf          filename inside assets/pdf/, or a full URL
 //   selected     set to true to feature it on the home page
+//
+// Which file an entry belongs in:
+//   books.bib           the book
+//   papers.bib          published articles and chapters, grouped by year
+//   forthcoming.bib     accepted or conditionally accepted, no issue yet;
+//                       shown as "Forthcoming" above the year groups
+//   working_papers.bib  preprints and unpublished work; its own section
+//   policy_reports.bib  policy reports and briefs
 
 import fs from "node:fs";
 import path from "node:path";
@@ -148,18 +156,21 @@ const books = load("books.bib");
 const papers = load("papers.bib");
 const reports = load("policy_reports.bib");
 const working = load("working_papers.bib");
+const forthcoming = load("forthcoming.bib");
 
 export default {
   books,
   papers,
   reports,
   working,
-  all: [...books, ...papers, ...reports, ...working],
+  forthcoming,
+  all: [...books, ...papers, ...reports, ...working, ...forthcoming],
   selected: [...papers, ...books].filter((p) => p.selected),
   counts: {
     books: books.length,
     papers: papers.length,
     reports: reports.length,
     working: working.length,
+    forthcoming: forthcoming.length,
   },
 };

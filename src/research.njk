@@ -18,7 +18,7 @@ description: Books, journal articles, chapters, and policy reports by Ranjit Lal
 <nav class="sectionnav" aria-label="On this page">
   <div class="wrap sectionnav__inner">
     <span class="sectionnav__label">On this page</span>
-    <ul><li><a href="#book">Book</a></li><li><a href="#articles">Articles &amp; chapters</a></li><li><a href="#reports">Policy reports</a></li></ul>
+    <ul><li><a href="#book">Book</a></li><li><a href="#working">Working papers</a></li><li><a href="#articles">Articles &amp; chapters</a></li><li><a href="#reports">Policy reports</a></li></ul>
   </div>
 </nav>
 
@@ -39,17 +39,30 @@ description: Books, journal articles, chapters, and policy reports by Ranjit Lal
   </div>
 </section>
 
+<section class="section" id="working">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Unpublished</span>
+      <h2>Working papers</h2>
+      <p class="pubcount">{% set n = publications.counts.working %}{{ n }} item{% if n != 1 %}s{% endif %}</p>
+    </div>
+    <ol class="pubs">
+{% for p in publications.working %}{{ pub.entry(p) }}{% endfor %}
+    </ol>
+  </div>
+</section>
+
 <section class="section" id="articles">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Articles &amp; chapters</span>
       <h2>Articles and book chapters</h2>
-      <p class="pubcount">{{ publications.counts.papers + publications.counts.working }} items</p>
+      <p class="pubcount">{% set n = publications.counts.papers + publications.counts.forthcoming %}{{ n }} item{% if n != 1 %}s{% endif %}</p>
     </div>
-{% if publications.working.length %}
-    <p class="yr">Working papers</p>
+{% if publications.forthcoming.length %}
+    <p class="yr">Forthcoming</p>
     <ol class="pubs">
-{% for p in publications.working %}{{ pub.entry(p) }}{% endfor %}
+{% for p in publications.forthcoming %}{{ pub.entry(p) }}{% endfor %}
     </ol>
 {% endif %}
 {% for group in publications.papers | byYear %}
@@ -66,7 +79,7 @@ description: Books, journal articles, chapters, and policy reports by Ranjit Lal
     <div class="section-head">
       <span class="eyebrow">Policy reports</span>
       <h2>Policy reports</h2>
-      <p class="pubcount">{{ publications.counts.reports }} items</p>
+      <p class="pubcount">{% set n = publications.counts.reports %}{{ n }} item{% if n != 1 %}s{% endif %}</p>
     </div>
 {% for group in publications.reports | byYear %}
     <p class="yr">{{ group.year }}</p>
