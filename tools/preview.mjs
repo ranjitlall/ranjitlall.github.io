@@ -49,8 +49,21 @@ if (!fs.existsSync(SITE)) {
 }
 fs.mkdirSync(OUT, { recursive: true });
 
-const css = fs.readFileSync(path.join(SITE, "assets/css/style.css"), "utf8");
-let inlined = 0, missing = [];
+let css = fs.readFileSync(path.join(SITE, "assets/css/style.css"), "utf8");
+
+// Inline url() references from inside the stylesheet too, or graphics that are
+// only referenced from CSS (the torchlight lattice) would be missing from a
+// standalone preview file.
+let cssInlined = 0;
+css = css.replace(/url\((["']?)([^"')]+)\1\)/g, (m, q, ref) => {
+  if (ref.startsWith("data:") || /^https?:/.test(ref)) return m;
+  const rel = ref.replace(/^\.\.\//, "assets/").replace(/^\//, "");
+  const uri = dataUri("/" + rel);
+  if (!uri) { missingCss.push(ref); return m; }
+  cssInlined++;
+  return `url("${uri}")`;
+});
+let inlined = 0, missing = [], missingCss = [];
 
 for (const page of PAGES) {
   const srcPath = path.join(SITE, page.src);
@@ -80,15 +93,17 @@ for (const page of PAGES) {
     return `href="${LIVE}${href}"`;                      // PDFs, /cv/, etc.
   });
 
-  const banner = `<div style="background:#fffbe9;border-bottom:1px solid #f0e2b6;padding:.6rem 1rem;
+  const banner = `<div style="position:fixed;left:0;right:0;bottom:0;z-index:9999;
+background:#fffbe9;border-top:1px solid #f0e2b6;padding:.55rem 1rem;
 font:500 12px/1.4 ui-monospace,monospace;color:#6b5310;text-align:center;letter-spacing:.04em">
-PREVIEW &mdash; ${page.label}. Not yet published. Keep all preview files in one folder so the links work.
+LOCAL PREVIEW &mdash; ${page.label}. This is not the live site. Keep all preview files in one folder so the links work.
 </div>`;
-  html = html.replace(/(<body[^>]*>)/, `$1\n${banner}`);
+  html = html.replace(/<\/body>/, `${banner}\n</body>`);
 
   fs.writeFileSync(path.join(OUT, page.out), html);
   console.log(`  ${page.out.padEnd(24)} ${(html.length / 1024).toFixed(0)} KB`);
 }
 
-console.log(`\n${inlined} images inlined.`);
+console.log(`\n${inlined} images inlined from markup, ${cssInlined} from the stylesheet.`);
+if (missingCss.length) console.log("CSS url() NOT FOUND:\n  " + [...new Set(missingCss)].join("\n  "));
 if (missing.length) console.log("NOT FOUND:\n  " + [...new Set(missing)].join("\n  "));

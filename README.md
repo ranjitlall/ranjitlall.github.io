@@ -98,6 +98,48 @@ a branch". The previous Jekyll setup pushed to a `gh-pages` branch; this one use
 the Pages artifact mechanism. If the source is left on the old setting the deploy
 will show a green tick and the live site will not change.
 
+## The torchlight effect
+
+Dark panels carry a lattice of data points with gaps in it, revealed inside a
+circle that follows the pointer; the gaps fill in as the light passes, then empty
+again. It is on the interior page bands, the book hero and the footer — not the
+home page hero, which already has the globe motif.
+
+To put it on another dark panel, add `fx` to the panel's classes and insert two
+children at the very top:
+
+```html
+<div class="fx__layer fx__layer--observed" aria-hidden="true"></div>
+<div class="fx__layer fx__layer--imputed" aria-hidden="true"></div>
+```
+
+`node tools/audit-dark.mjs` lists every dark background in the stylesheet by
+computed luminance, with a count of how many elements use it — useful for finding
+panels a search by class name would miss.
+
+`python3 tools/make-lattice.py` regenerates the two graphics. `MISSING_RATE` at
+the top controls what proportion of points are missing; `COLS`/`ROWS` the density.
+Both files come from one shared grid, so the imputed points always land exactly
+in the holes.
+
+## Previewing a change before you push
+
+```
+npm run preview
+```
+
+Writes four self-contained files to `preview/` — the built pages with the
+stylesheet and every image inlined, so each can be opened by double-clicking.
+Keep them in one folder and keep their names, or the links between them break.
+
+## When the Centre moves to its own domain
+
+The CTS address appears in two files. Editing `site.json` updates four of the six
+links:
+
+- `src/_data/site.json` — `centreUrl`
+- `_bibliography/working_papers.bib` — `link2` on the AI paper
+
 ## Two CSS rules worth remembering
 
 Both of these caused visible bugs during the build:
@@ -108,3 +150,10 @@ Both of these caused visible bugs during the build:
 2. A modifier for a dark background must undo *every* property the light base
    set, `background` included — not just `color`. Otherwise you get white text
    on a white button.
+3. `.fx > *:not(.fx__layer)` has specificity (0,2,0) and will override a
+   decorative child's `position: absolute`, dragging it into normal flow. The
+   globe motifs are re-asserted explicitly for that reason.
+4. With `background-clip: text`, the glyphs must be transparent or the gradient
+   is hidden behind them — and the animation must stay within 0%–100% of
+   `background-position`, or part of the word loses its background entirely and
+   the transparent glyphs there become invisible.

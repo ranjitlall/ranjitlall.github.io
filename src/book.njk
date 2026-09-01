@@ -7,7 +7,9 @@ description: "Making International Institutions Work: The Politics of Performanc
 {% import "motif.njk" as motif %}
 
 
-<section class="bookhero">
+<section class="bookhero fx">
+    <div class="fx__layer fx__layer--observed" aria-hidden="true"></div>
+    <div class="fx__layer fx__layer--imputed" aria-hidden="true"></div>
   {{ motif.motif("pale", "bookhero__motif") }}
   <div class="wrap bookhero__inner">
     <img class="bookhero__cover" src="{{ '/assets/img/book-cover.jpg' | url }}"
@@ -265,7 +267,7 @@ description: "Making International Institutions Work: The Politics of Performanc
       </figure>
       <div>
         <p>The book was launched at Nuffield College, Oxford, three months after publication.
-          It was chaired by <strong>Duncan Snidal</strong>, with comments from economists and
+          It was chaired by Duncan Snidal, with comments from economists and
           political scientists whose work bears directly on the questions it takes up &mdash;
           the design of institutions, the measurement of opportunity, and the politics of
           international cooperation.</p>

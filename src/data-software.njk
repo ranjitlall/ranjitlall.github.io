@@ -6,7 +6,9 @@ description: Original datasets and open-source packages from the research of Ran
 ---
 {% import "motif.njk" as motif %}
 
-<section class="pagehero">
+<section class="pagehero fx">
+    <div class="fx__layer fx__layer--observed" aria-hidden="true"></div>
+    <div class="fx__layer fx__layer--imputed" aria-hidden="true"></div>
   {{ motif.motif("pale", "pagehero__motif") }}
   <div class="wrap">
     <span class="hero__kicker">Open research</span>

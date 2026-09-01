@@ -24,7 +24,7 @@
   --mono:"IBM Plex Mono",ui-monospace,monospace;
   --measure:68ch; --wrap:1120px;
   --gutter:clamp(1.25rem,4vw,3rem);
-  --section-y:clamp(2.5rem,4.2vw,3.8rem);
+  --section-y:clamp(3rem,5vw,4.6rem);
 
   /* Hero and panel tints. These were a switchable palette during design; the
      navy hero was chosen, so its values now live here as the only palette. */
@@ -85,7 +85,7 @@ strong{font-weight:600;color:var(--navy)}
 #contact{background:#fdf7ea}
 /* abstract panels need to sit on whatever the section colour is */
 #publications details.abs p{background:#fff}
-.section-head{max-width:56ch;margin-bottom:clamp(1.25rem,2.2vw,1.8rem)}
+.section-head{max-width:56ch;margin-bottom:clamp(1.5rem,2.6vw,2.2rem)}
 .section-head p{color:var(--slate)}
 /* a short gradient rule under each section heading, tinted per section */
 .section-head h2::after{content:"";display:block;width:76px;height:4px;border-radius:100px;
@@ -255,10 +255,10 @@ strong{font-weight:600;color:var(--navy)}
 .chip a:hover{color:var(--verdigris);border-bottom-color:var(--verdigris)}
 
 /* ---- Research themes ---- */
-.themes{display:grid;gap:clamp(.75rem,1.3vw,1.05rem);grid-template-columns:1fr}
+.themes{display:grid;gap:clamp(.9rem,1.6vw,1.3rem);grid-template-columns:1fr}
 @media(min-width:760px){.themes{grid-template-columns:1fr 1fr}}
 .theme{background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--gold);
-  border-radius:4px;padding:clamp(.75rem,1.3vw,1rem)}
+  border-radius:4px;padding:clamp(.95rem,1.6vw,1.25rem)}
 .theme:nth-child(2){border-top-color:var(--coral)}
 .theme:nth-child(3){border-top-color:var(--cyan)}
 .theme:nth-child(4){border-top-color:var(--violet)}
@@ -287,12 +287,12 @@ strong{font-weight:600;color:var(--navy)}
   font-family:var(--display);font-size:1.05rem;font-style:italic;color:var(--navy);max-width:56ch}
 
 /* ---- Publication entries ---- */
-.pubs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.15rem}
+.pubs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.45rem}
 .pubs-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--slate);margin:0 0 1.2rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule)}
 .pubs + .pubs-label{margin-top:2.6rem}
 .pub{display:grid;gap:.4rem 1.4rem;grid-template-columns:1fr;
-  padding-bottom:1.15rem;border-bottom:1px solid var(--rule)}
+  padding-bottom:1.45rem;border-bottom:1px solid var(--rule)}
 .pub:last-child{border-bottom:0;padding-bottom:0}
 @media(min-width:760px){.pub{grid-template-columns:5.5rem 1fr}}
 .badge{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:500;
@@ -339,9 +339,9 @@ details.abs p{margin-top:.9rem;font-size:.93rem;color:var(--slate);
   background:var(--tint);padding:1rem 1.15rem;border-radius:4px;max-width:none}
 
 /* ---- Data / software cards ---- */
-.cards{display:grid;gap:1.05rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+.cards{display:grid;gap:1.3rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
 .card{background:var(--paper);border:1px solid var(--rule);border-radius:4px;
-  padding:1rem 1.15rem;display:flex;flex-direction:column}
+  padding:1.2rem 1.35rem;display:flex;flex-direction:column}
 .card h3{font-size:1.05rem;margin-bottom:.4rem;font-weight:700}
 .card__kind{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
   color:var(--verdigris);display:block;margin-bottom:.5rem}
@@ -379,7 +379,7 @@ details.abs p{margin-top:.9rem;font-size:.93rem;color:var(--slate);
 address{font-style:normal;color:var(--slate);font-size:.95rem;line-height:1.7}
 
 /* ---- Footer ---- */
-.affil{background:var(--paper);border-top:1px solid var(--rule);padding-block:2.1rem}
+.affil{background:var(--paper);border-top:1px solid var(--rule);padding-block:2.6rem}
 .affil__label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--slate);text-align:center;margin:0 0 1rem;max-width:none}
 .affil__row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
@@ -391,7 +391,7 @@ address{font-style:normal;color:var(--slate);font-size:.95rem;line-height:1.7}
 .affil__dpir img{height:34px}
 .affil__oms img{height:52px}
 .affil__aigi img{height:38px}
-.site-footer{background:var(--navy-deep);color:#9db4cc;padding-block:2.4rem;font-size:.88rem}
+.site-footer{background:var(--navy-deep);color:#9db4cc;padding-block:2.9rem;font-size:.88rem}
 .site-footer a{color:#cfdae6;text-decoration:none}
 .site-footer a:hover{color:var(--gold)}
 .footer__inner{display:flex;justify-content:space-between;gap:1.5rem;
@@ -427,7 +427,7 @@ address{font-style:normal;color:var(--slate);font-size:.95rem;line-height:1.7}
 
 /* ---- Publication list ---- */
 .yr{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--slate);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--rule)}
+  color:var(--slate);margin:2.5rem 0 1rem;padding-bottom:.3rem;border-bottom:1px solid var(--rule)}
 .yr:first-of-type{margin-top:0}
 .pub__title{font-size:1.02rem}
 /* One row of controls. A closed <details> sits inline with the links; an open one
@@ -456,11 +456,11 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
   box-shadow:0 8px 20px rgba(0,33,71,.2)}
 .bookrow .pubs{margin:0}
 .bookrow .pub{padding-bottom:0;border-bottom:0}
-#book{padding-block:clamp(1.8rem,3vw,2.6rem)}
+#book{padding-block:clamp(2.1rem,3.5vw,3rem)}
 #book .eyebrow{margin-bottom:.5rem}
 
 /* ---- Data page ---- */
-.ds{display:grid;gap:1.1rem}
+.ds{display:grid;gap:1.35rem}
 .dataset{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--verdigris);
   border-radius:4px;padding:1rem 1.2rem}
 .dataset:nth-child(2){border-left-color:var(--coral)}
@@ -472,7 +472,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .dataset h3 a:hover{color:var(--verdigris)}
 .dataset p{font-size:.9rem;color:var(--slate);margin-bottom:.6rem;max-width:78ch}
 .dataset__meta{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
-.pkg{display:grid;gap:.7rem}
+.pkg{display:grid;gap:.9rem}
 .pkgrow{display:flex;flex-wrap:wrap;gap:.5rem .9rem;align-items:baseline;background:#fff;
   border:1px solid var(--rule);border-radius:4px;padding:.6rem .95rem}
 .pkgrow__n{font-family:var(--display);font-weight:700;font-size:.95rem}
@@ -528,7 +528,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .factbox dd{margin:0 0 .45rem;font-size:.86rem;color:var(--ink);
   padding-bottom:.45rem;border-bottom:1px solid var(--rule)}
 .factbox dd:last-child{border-bottom:0;margin-bottom:0}
-.chapters{display:grid;gap:.7rem;grid-template-columns:1fr}
+.chapters{display:grid;gap:.9rem;grid-template-columns:1fr}
 @media(min-width:760px){.chapters{grid-template-columns:1fr 1fr}}
 .chapter{display:flex;gap:.75rem;align-items:baseline;background:#fff;
   border:1px solid var(--rule);border-radius:4px;padding:.55rem .9rem}
@@ -536,7 +536,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .chapter__t{font-size:.88rem;color:var(--ink);margin:0;max-width:none}
 
 /* endorsements */
-.quotes{display:grid;gap:1rem;grid-template-columns:1fr}
+.quotes{display:grid;gap:1.25rem;grid-template-columns:1fr}
 /* Two columns, never four. The two long endorsements are last, so they share a
    row and wrap at roughly 60 characters instead of becoming tall thin strips. */
 @media(min-width:760px){.quotes{grid-template-columns:1fr 1fr}}
@@ -551,7 +551,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
   text-transform:uppercase;color:var(--slate)}
 
 /* reviews list */
-.reviews{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.reviews{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
 .review{background:#fff;border:1px solid var(--rule);border-radius:4px;padding:.6rem .95rem}
 .review__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .9rem}
 .review__q{margin:.5rem 0 0;font-family:var(--display);font-style:italic;font-size:.92rem;
@@ -566,7 +566,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
   letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
 
 /* launch event */
-.press{display:grid;gap:.75rem}
+.press{display:grid;gap:.95rem}
 .presslink{display:flex;flex-wrap:wrap;gap:.35rem .9rem;align-items:baseline;background:#fff;
   border:1px solid var(--rule);border-left:4px solid var(--cyan);border-radius:4px;
   padding:.7rem 1rem;text-decoration:none}
@@ -591,3 +591,95 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .speaker__role{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--gold-deep);border:1px solid #f0dcae;
   background:#fdf6e7;border-radius:100px;padding:.12rem .45rem;white-space:nowrap}
+
+/* ==========================================================================
+   Torchlight reveal
+   Dark panels carry a lattice of data points with gaps in them. The gaps are
+   filled by a second layer masked to a circle that follows the pointer, so the
+   missing values appear to be imputed under the light and vanish behind it.
+
+   Two stacked layers, both children of .fx:
+     .fx__layer--observed  measured points, no mask, fades in on pointer enter
+     .fx__layer--imputed   the gaps, masked to the cursor circle
+
+   The stylesheet references the graphics relatively, so they resolve wherever
+   the site is served from without a template filter.
+   ========================================================================== */
+.fx{position:relative;overflow:hidden}
+/* Every child that is not a layer sits above them. Targeting a wrapper class
+   here would silently miss panels whose children are bare elements. */
+.fx > *:not(.fx__layer){position:relative;z-index:2}
+/* The globe motifs are already absolutely positioned decoration and are direct
+   children of these panels, so the rule above would drag them into normal flow
+   and blow the panel open. Re-assert them at equal specificity, below the
+   lattice layers. */
+.fx > .hero__motif,
+.fx > .pagehero__motif,
+.fx > .bookhero__motif{position:absolute;z-index:0}
+
+.fx__layer{position:absolute;inset:0;z-index:1;pointer-events:none;
+  opacity:0;transition:opacity .45s ease}
+.fx.is-live .fx__layer{opacity:1}
+
+.fx__layer--observed{
+  background:url("../img/fx-lattice-observed.svg") center / cover no-repeat;
+  opacity:0}
+.fx.is-live .fx__layer--observed{opacity:.55}
+
+.fx__layer--imputed{
+  background:url("../img/fx-lattice-imputed.svg") center / cover no-repeat;
+  -webkit-mask-image:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),#000 0%,rgba(0,0,0,.45) 50%,transparent 74%);
+          mask-image:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),#000 0%,rgba(0,0,0,.45) 50%,transparent 74%)}
+
+/* Variant B: the observed lattice is also masked, to a wider circle, so nothing
+   appears until the torch is near. Toggled by adding .fx--near to the panel. */
+.fx--near .fx__layer--observed{
+  -webkit-mask-image:radial-gradient(460px circle at var(--mx,50%) var(--my,50%),#000 0%,rgba(0,0,0,.5) 55%,transparent 78%);
+          mask-image:radial-gradient(460px circle at var(--mx,50%) var(--my,50%),#000 0%,rgba(0,0,0,.5) 55%,transparent 78%)}
+
+/* ---- One-time light-up on highlights ------------------------------------
+   background-clip:text clips the background to the glyphs, but the text is then
+   painted on top in `color`. With an opaque colour the gradient is invisible,
+   so the glyphs must be transparent while the sweep runs. The gradient
+   therefore runs currentColor -> flash -> currentColor rather than through
+   transparent: at the end of the animation the text is left painted in its own
+   colour rather than vanishing. --hl-flash is a brighter tint of the accent,
+   not white, because most highlights here sit on light panels where a white
+   sweep would read as the word disappearing. */
+.hl,.hl--coral{--hl-flash:#f0b429}
+.hl--coral{--hl-flash:#e8604c}
+.section--navy .hl,.section--navy .hl--coral{--hl-flash:#ffffff}
+
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hl.is-lit,.hl--coral.is-lit{
+    background-image:linear-gradient(90deg,
+      currentColor 0%, currentColor 36%,
+      var(--hl-flash) 50%,
+      currentColor 64%, currentColor 100%);
+    background-size:260% 100%;
+    /* repeat-x, and an animation confined to 0%..100%, so the gradient always
+       covers the whole word. Outside that range the image no longer spans the
+       element and the transparent glyphs in the bare part become invisible —
+       which is exactly how half of each highlight disappeared. */
+    background-repeat:repeat-x;
+    -webkit-background-clip:text;
+            background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:hl-sweep 1.5s cubic-bezier(.25,.6,.3,1) forwards}
+}
+/* The flash sits at 50% of a 260%-wide gradient, so at 100% it is just off the
+   left edge and at 0% just off the right: the sweep runs left to right and no
+   flash is left frozen mid-word at either end. */
+@keyframes hl-sweep{
+  from{background-position:100% 0}
+  to  {background-position:0% 0}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .fx__layer{transition:none !important}
+  .fx__layer--observed{opacity:.16 !important}
+  .fx__layer--imputed{opacity:.16 !important;
+    -webkit-mask-image:none !important;mask-image:none !important}
+  .hl.is-lit,.hl--coral.is-lit{animation:none !important;
+    background-image:none !important;-webkit-text-fill-color:currentColor !important}
+}
