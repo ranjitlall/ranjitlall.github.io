@@ -1,7 +1,7 @@
 # ranjitlall.github.io
 
 Personal academic site. Built with [Eleventy](https://www.11ty.dev/), matching the
-visual language of the [Centre for Technology and Society](https://ranjitlall.github.io/cts-website/) site.
+visual language of the [Centre for Technology and Society](https://www.cts-oxford.org/) site.
 
 ## Everyday tasks
 
@@ -85,8 +85,10 @@ The site is served from the domain root, `https://ranjitlall.github.io`.
   `--pathprefix` flag.
 - `src/_data/site.json` has `"url": "https://ranjitlall.github.io"` with no subpath.
 
-The CTS site is a *project* site at `/cts-website/`, so it does the opposite on
-all three counts. Copying its settings here would break every link and image.
+The CTS site used to be a *project* site at `/cts-website/` and did the opposite
+on all three counts; it has since moved to its own domain. Either way, do not
+copy a `--pathprefix` setting across — on a site served from the root it would
+break every link and image.
 
 ## Deployment
 
@@ -122,6 +124,21 @@ the top controls what proportion of points are missing; `COLS`/`ROWS` the densit
 Both files come from one shared grid, so the imputed points always land exactly
 in the holes.
 
+## The CTS panel illustration
+
+`hero-dispersion.svg` is **inlined** from `src/_includes/partials/`, not loaded
+as an `<img>`. It has to be: `offset-path` does nothing inside an `<img>`, and a
+page stylesheet cannot reach elements inside one either. Its viewBox is widened
+to `0 -32 560 564` so the triangle is not clipped as it turns.
+
+Six dots travel its outline on a 26s circuit; the triangle turns once every 150s
+and the dots carry the same transform. `python3 tools/check-rotation.py` renders
+six angles through a full turn and reports the tightest vertex margin.
+
+Note that an inlined SVG's `<style>` is **document-scoped**, not scoped to the
+SVG. Its rules for `.n`, `.e` and `.tri` apply to the whole page, so do not use
+those class names elsewhere.
+
 ## Previewing a change before you push
 
 ```
@@ -132,12 +149,13 @@ Writes four self-contained files to `preview/` — the built pages with the
 stylesheet and every image inlined, so each can be opened by double-clicking.
 Keep them in one folder and keep their names, or the links between them break.
 
-## When the Centre moves to its own domain
+## The Centre's address
 
-The CTS address appears in two files. Editing `site.json` updates four of the six
-links:
+The CTS site lives at <https://www.cts-oxford.org/>. It moved there from
+`ranjitlall.github.io/cts-website/` in September 2026. The address appears in two
+files, and `site.json` feeds most of the links:
 
-- `src/_data/site.json` — `centreUrl`
+- `src/_data/site.json` — `centreUrl`, which also builds the Working Papers link
 - `_bibliography/working_papers.bib` — `link2` on the AI paper
 
 ## Two CSS rules worth remembering

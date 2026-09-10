@@ -54,8 +54,8 @@ permalink: /index.html
           <li class="chip"><span class="chip__k">Dept</span><span><a href="{{ site.departmentUrl }}">Politics &amp; International Relations</a></span></li>
           <li class="chip"><span class="chip__k">College</span><span><a href="{{ site.collegeUrl }}">St John's College</a></span></li>
           <li class="chip"><span class="chip__k">Centre</span><span><a href="{{ site.centreUrl }}">Director, Centre for Technology and Society</a></span></li>
-          <li class="chip"><span class="chip__k">Previously</span><span>London School of Economics &middot; Financial Times &middot; Bank of England</span></li>
           <li class="chip"><span class="chip__k">Education</span><span>PhD Harvard University &middot; BA University of Oxford</span></li>
+          <li class="chip"><span class="chip__k">Previously</span><span>London School of Economics &middot; Financial Times &middot; Bank of England</span></li>
         </ul>
       </div>
     </div>
@@ -124,9 +124,7 @@ permalink: /index.html
           <a class="btn btn--outline" href="{{ site.centreUrl }}working-papers/">Working Paper Series &rarr;</a>
         </div>
       </div>
-      <img class="cts__art" src="{{ '/assets/img/hero-dispersion.svg' | url }}"
-           alt="Illustration: a dense cluster of coloured points dispersing into a sparse field, within an outlined triangle"
-           width="560" height="480">
+      {% include "partials/hero-dispersion.svg" %}
     </div>
   </div>
 </section>
@@ -140,9 +138,10 @@ permalink: /index.html
       <div>
         <span class="book__meta">Book &middot; Cambridge University Press &middot; 2023</span>
         <h2>Making International Institutions Work</h2>
-        <blockquote>Challenging popular characterisations of international institutions as
-          &lsquo;runaway bureaucracies&rsquo;, the most serious threat to performance comes from
-          the pursuit of narrow political interests by states.</blockquote>
+        <blockquote>The threat to performance comes less from runaway bureaucrats
+          than from the states that created these institutions &mdash; and what protects
+          them is autonomy won in practice: alliances with actors above and below the
+          state, and work governments find hard to watch.</blockquote>
         <p>International institutions are essential for tackling many of the most urgent
           challenges facing the world, yet we know little about when they succeed, when they
           fail, and why. The book proposes a new theory of institutional performance and tests

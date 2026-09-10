@@ -57,12 +57,18 @@
 
     <line class="m-axis" x1="210" y1="4" x2="210" y2="416" stroke="#ffffff" stroke-opacity=".16" stroke-width=".9" transform="rotate(-14 210 210)"/>
 
-    <g>
-      <circle class="m-node" cx="24" cy="150" r="5" fill="{{ nA }}"/>
-      <circle class="m-node" cx="392" cy="268" r="4.5" fill="{{ nB }}"/>
-      <circle class="m-node" cx="286" cy="24" r="3.6" fill="{{ nC }}"/>
-      <circle class="m-node" cx="126" cy="401" r="3.8" fill="{{ nA }}"/>
-      <circle class="m-node" cx="405" cy="160" r="2.8" fill="#ffffff" fill-opacity=".6"/>
+    {# The five nodes are the travelling dots: they ride the gold seam on the
+       home page and the graticule's own middle line on the interior pages,
+       spaced evenly round the loop so at least one is always inside the visible
+       part of the panel — a large slice of each globe sits outside its edge.
+       They must NOT carry .m-node: that rule's animation would replace the
+       orbit and leave them stacked at 0,0. #}
+    <g class="m-orbit" transform="rotate({% if variant == "pale" %}-14{% else %}-18{% endif %} 210 210)">
+      <circle class="m-orb" r="5"   fill="{{ nA }}"/>
+      <circle class="m-orb" r="4.5" fill="{{ nB }}"/>
+      <circle class="m-orb" r="3.6" fill="{{ nC }}"/>
+      <circle class="m-orb" r="3.8" fill="{{ nA }}"/>
+      <circle class="m-orb" r="2.8" fill="#ffffff" fill-opacity=".6"/>
     </g>
   </svg>
 {% endmacro %}
