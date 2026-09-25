@@ -20,7 +20,7 @@ description: Books, journal articles, chapters, and policy reports by Ranjit Lal
 <nav class="sectionnav" aria-label="On this page">
   <div class="wrap sectionnav__inner">
     <span class="sectionnav__label">On this page</span>
-    <ul><li><a href="#book">Book</a></li><li><a href="#working">Working papers</a></li><li><a href="#articles">Articles &amp; chapters</a></li><li><a href="#reports">Policy reports</a></li></ul>
+    <ul><li><a href="#book">Book</a></li>{% if publications.working.length %}<li><a href="#working">Working papers</a></li>{% endif %}<li><a href="#articles">Articles &amp; chapters</a></li><li><a href="#reports">Policy reports</a></li></ul>
   </div>
 </nav>
 
@@ -41,6 +41,7 @@ description: Books, journal articles, chapters, and policy reports by Ranjit Lal
   </div>
 </section>
 
+{% if publications.working.length %}
 <section class="section" id="working">
   <div class="wrap">
     <div class="section-head">
@@ -53,6 +54,7 @@ description: Books, journal articles, chapters, and policy reports by Ranjit Lal
     </ol>
   </div>
 </section>
+{% endif %}
 
 <section class="section" id="articles">
   <div class="wrap">

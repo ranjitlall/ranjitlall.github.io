@@ -167,7 +167,7 @@ permalink: /index.html
     </div>
 {% set upcoming = publications.forthcoming.concat(publications.working) %}
 {% if upcoming.length %}
-    <p class="pubs-label">{% if publications.forthcoming.length %}Forthcoming &amp; working papers{% else %}Working papers{% endif %}</p>
+    <p class="pubs-label">{% if publications.forthcoming.length and publications.working.length %}Forthcoming &amp; working papers{% elif publications.forthcoming.length %}Forthcoming{% else %}Working papers{% endif %}</p>
     <ol class="pubs">
 {% for p in upcoming %}{{ pub.entry(p) }}{% endfor %}
     </ol>
