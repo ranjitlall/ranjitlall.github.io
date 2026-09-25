@@ -1,8 +1,14 @@
+import { load as loadYaml } from "js-yaml";
+
 export default function (eleventyConfig) {
   // The assets folder lives at the repository root, not inside src/, so that the
   // existing assets/pdf/ and assets/img/ files keep their current URLs. Eleventy
   // copies it through unchanged to _site/assets.
   eleventyConfig.addPassthroughCopy("assets");
+
+  // Data files may be YAML (src/_data/cv.yaml), which is easier to edit by
+  // hand than JSON: no quotes around every value, no trailing-comma traps.
+  eleventyConfig.addDataExtension("yaml", (contents) => loadYaml(contents));
 
   // --- Filters -----------------------------------------------------------
 

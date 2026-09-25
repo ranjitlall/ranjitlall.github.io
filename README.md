@@ -74,12 +74,39 @@ paper itself:
 Use `link2`..`link4` instead for anything that is another *way to get the paper*
 — a preprint, a working paper version, a replication archive.
 
+### Updating the CV
+
+The CV is a web page at `/cv/` (it replaced the old PDF; the PDF is still on the
+server so old links to it keep working). It is built from two sources:
+
+- **Publications** come from the `.bib` files above — the same ones the research
+  page uses. Adding a paper there adds it to the CV. Nothing to do here.
+- **Everything else** — employment, education, awards, teaching, service,
+  software, datasets — is in `src/_data/cv.yaml`. Edit the text in place and
+  keep each line's indentation the same as its neighbours.
+
+A few `.bib` fields exist only for the CV:
+
+```bibtex
+  pagetotal={412},                      % a book's page count
+  cv_note1={Reviewed in <em>...</em>},  % an extra line under the entry
+  cv_section={articles},                % on a working paper: list it with the
+                                        % journal articles (conditional acceptances)
+```
+
+Journal articles, conference papers and chapters are sorted newest year first.
+Within a year the order follows `papers.bib`, exactly as on the research page:
+put the more recent paper higher in the file. There is no PDF download on
+the page; if the page is printed, the print styles at the end of `style.css` keep
+only the CV itself.
+
 ### Editing text
 
 - Home page: `src/index.njk`
 - Research page: `src/research.njk` (the lists are generated; only the headings are here)
 - Data and software: `src/data-software.njk`
 - Book page: `src/book.njk`
+- CV (everything except publications): `src/_data/cv.yaml`
 - Name, address, email, links: `src/_data/site.json`
 - Shared header and footer: `src/_includes/layouts/base.njk`
 

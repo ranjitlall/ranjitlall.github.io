@@ -21,6 +21,7 @@ const PAGES = [
   { src: "research/index.html", out: "preview-research.html", label: "Research" },
   { src: "data_software/index.html", out: "preview-data.html", label: "Data & software" },
   { src: "book/index.html", out: "preview-book.html", label: "Book" },
+  { src: "cv/index.html", out: "preview-cv.html", label: "CV" },
 ];
 
 const ROUTES = {
@@ -28,6 +29,7 @@ const ROUTES = {
   "/research/": "preview-research.html",
   "/data_software/": "preview-data.html",
   "/book/": "preview-book.html",
+  "/cv/": "preview-cv.html",
 };
 
 const MIME = {

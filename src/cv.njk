@@ -1,19 +1,120 @@
 ---
-layout: null
+layout: layouts/base.njk
+title: Curriculum vitae
 permalink: /cv/index.html
-eleventyExcludeFromCollections: true
+description: Curriculum vitae of Ranjit Lall, Professor of International Political Economy at the University of Oxford.
 ---
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<title>Curriculum vitae | {{ site.name }}</title>
-<meta name="robots" content="noindex">
-<link rel="canonical" href="{{ site.url }}{{ site.cv }}">
-<meta http-equiv="refresh" content="0; url={{ site.cv | url }}">
-</head>
-<body>
-<p>Redirecting to the <a href="{{ site.cv | url }}">curriculum vitae (PDF)</a>.</p>
-<script>window.location.replace({{ (site.cv | url) | dump | safe }});</script>
-</body>
-</html>
+{#
+  The CV, laid out like the old LaTeX PDF: a plain document on a white page.
+  Two sources, nothing typed twice:
+    - publications come from the .bib files in _bibliography/ (the same ones
+      the research page uses), formatted in src/_data/publications.js;
+    - everything else comes from src/_data/cv.yaml.
+  If someone prints the page, the print styles at the end of style.css drop
+  the site's header and footer so only the document prints.
+#}
+{% macro pubs(list) %}
+{% for p in list %}
+      <p class="cv__entry cv__pub">{{ p.cv | safe }}{% for n in p.cvNotes %}<br><span class="cv__bullet">{{ n | safe }}</span>{% endfor %}</p>
+{% endfor %}
+{% endmacro %}
+
+<div class="cvpage">
+  <div class="wrap">
+    <article class="cv__paper">
+      <header class="cv__head">
+        <h1>{{ site.name }}</h1>
+        <p>{{ cv.affiliation }}</p>
+        <p>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </header>
+
+      <section class="cv__sec">
+        <h2>Employment</h2>
+{% for e in cv.employment %}
+        <div class="cv__block">
+          <p class="cv__line"><strong>{{ e.place }}</strong><span class="cv__date">{{ e.dates }}</span></p>
+          {% for r in e.roles %}<p class="cv__line">{{ r | safe }}</p>{% endfor %}
+        </div>
+{% endfor %}
+      </section>
+
+      <section class="cv__sec">
+        <h2>Education</h2>
+{% for e in cv.education %}
+        <div class="cv__block">
+          <p class="cv__line"><strong>{{ e.place }}</strong>{% if e.place_note %} {{ e.place_note }}{% endif %}</p>
+          <p class="cv__line">{{ e.degree | safe }}<span class="cv__date">{{ e.dates }}</span></p>
+          {% for n in e.notes %}<p class="cv__line"><span class="cv__bullet">{{ n | safe }}</span></p>{% endfor %}
+          {% for n in e.lines %}<p class="cv__line">{{ n | safe }}</p>{% endfor %}
+        </div>
+{% endfor %}
+      </section>
+
+      <section class="cv__sec">
+        <h2>Publications</h2>
+        <h3>Book</h3>
+{{ pubs(publications.cv.books) }}
+        <h3>Journal Articles</h3>
+{{ pubs(publications.cv.articles) }}
+{% if publications.cv.conference.length %}
+        <h3>Conference Papers</h3>
+{{ pubs(publications.cv.conference) }}
+{% endif %}
+{% if publications.cv.chapters.length %}
+        <h3>Book Chapters</h3>
+{{ pubs(publications.cv.chapters) }}
+{% endif %}
+        <h3>Policy Reports</h3>
+{{ pubs(publications.cv.reports) }}
+{% if publications.cv.working.length %}
+        <h3>Working Papers</h3>
+{{ pubs(publications.cv.working) }}
+{% endif %}
+      </section>
+
+      <section class="cv__sec">
+        <h2>Other Awards, Grants, and Fellowships</h2>
+{% for a in cv.awards %}
+        <p class="cv__entry">{{ a | safe }}</p>
+{% endfor %}
+      </section>
+
+      <section class="cv__sec">
+        <h2>Teaching Experience</h2>
+{% for t in cv.teaching %}
+        <h3>{{ t.place }}{% if t.place_note %} <span class="cv__plain">{{ t.place_note }}</span>{% endif %}</h3>
+{% for i in t.items %}
+        <p class="cv__entry">{{ i | safe }}</p>
+{% endfor %}
+{% if t.note %}
+        <p class="cv__entry cv__gap">{% if t.note_label %}<strong>{{ t.note_label }}</strong>: {% endif %}{{ t.note | safe }}</p>
+{% endif %}
+{% endfor %}
+      </section>
+
+      <section class="cv__sec">
+        <h2>Academic Service</h2>
+{% for s in cv.service %}
+        <h3>{{ s.place }}</h3>
+{% for i in s.items %}
+        <p class="cv__entry">{{ i | safe }}</p>
+{% endfor %}
+{% endfor %}
+      </section>
+
+      <section class="cv__sec">
+        <h2>Software</h2>
+{% for s in cv.software %}
+        <p class="cv__entry"><a class="cv__code" href="{{ s.url }}">{{ s.name }}</a>{{ s.sep or "." }} {{ s.text | safe }}</p>
+{% endfor %}
+      </section>
+
+      <section class="cv__sec">
+        <h2>Datasets</h2>
+{% for d in cv.datasets %}
+        <p class="cv__entry">{{ d | safe }}</p>
+{% endfor %}
+      </section>
+    </article>
+  </div>
+</div>

@@ -23,6 +23,13 @@
 //   pdf          filename inside assets/pdf/, or a full URL
 //   selected     set to true to feature it on the home page
 //
+// Fields used only by the CV page (/cv/):
+//   cv_note1..3  extra lines under the entry on the CV, e.g. the book's
+//                cv_note1={Reviewed in <em>Governance</em>, ...}
+//   pagetotal    a book's page count, e.g. pagetotal={412}
+//   cv_section   set to {articles} on a working paper to list it at the top of
+//                the CV's journal articles (used for conditional acceptances)
+//
 // Which file an entry belongs in:
 //   books.bib           the book
 //   papers.bib          published articles and chapters, grouped by year
@@ -119,6 +126,13 @@ function venue(type, f) {
     if (f.pages) bits.push(`, ${f.pages.replace(/--/g, "\u2013")}`);
     return { italic: out, rest: bits.join("") };
   }
+  if (type === "inproceedings") {
+    return {
+      italic: f.booktitle || "",
+      rest: f.pages ? `, ${f.pages.replace(/--/g, "\u2013")}` : "",
+      prefix: "In ",
+    };
+  }
   if (type === "incollection") {
     return {
       italic: f.booktitle || "",
@@ -129,6 +143,67 @@ function venue(type, f) {
   // @misc entries (policy reports, preprints) carry the outlet in archivePrefix,
   // the convention al-folio used. Fall back through the plausible fields.
   return { italic: "", rest: f.archiveprefix || f.publisher || f.journal || "" };
+}
+
+// ---- CV formatting -------------------------------------------------------
+// The CV lists each item in the house style of the old LaTeX CV:
+//   "Title." 2023. Journal 67 (4): 1096–1116. With Dan Honig and Bradley C. Parks.
+
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const dash = (s) => String(s).replace(/--/g, "–").replace(/(\d)-(\d)/g, "$1–$2");
+const endStop = (s) => (/[.?!]$/.test(s.replace(/<[^>]+>/g, "")) ? s : s + ".");
+
+/** ["A"] -> "A"; ["A","B"] -> "A and B"; ["A","B","C"] -> "A, B, and C" */
+function nameList(names) {
+  if (names.length <= 1) return names.join("");
+  if (names.length === 2) return names.join(" and ");
+  return names.slice(0, -1).join(", ") + ", and " + names[names.length - 1];
+}
+
+function cvCitation(type, f, authors, link) {
+  const others = authors.filter((a) => a !== "Ranjit Lall");
+  const withLine = others.length ? ` With ${esc(nameList(others))}.` : "";
+  const t = esc(f.title || "");
+  const titleText = /[.?!]$/.test(t) ? t : t + ".";
+  const quoted = link
+    ? `<a href="${esc(link)}">“${titleText}”</a>`
+    : `“${titleText}”`;
+  const year = f.year || "";
+
+  if (type === "book") {
+    const where = f.location || f.address || "";
+    const title = link ? `<a href="${esc(link)}"><em>${t}</em></a>` : `<em>${t}</em>`;
+    return `${title}. ${year}. ${where ? esc(where) + ": " : ""}${esc(f.publisher || "")}.` +
+      (f.pagetotal ? ` ${esc(f.pagetotal)} pages.` : "");
+  }
+  // accepted / forthcoming work carries its status in note, which may hold <em>
+  if (f.note) return `${quoted} ${endStop(f.note)}${withLine}`;
+
+  if (type === "article") {
+    let vol = "";
+    if (f.volume) {
+      vol = ` ${esc(f.volume)}`;
+      if (f.number) vol += ` (${esc(f.number)})`;
+      if (f.pages) vol += `: ${dash(esc(f.pages))}`;
+    }
+    return `${quoted} ${year}. <em>${esc(f.journal || "")}</em>${vol}.${withLine}`;
+  }
+  if (type === "inproceedings") {
+    return `${quoted} ${year}. In <em>${esc(f.booktitle || "")}</em>` +
+      (f.pages ? `, ${dash(esc(f.pages))}` : "") + `.${withLine}`;
+  }
+  if (type === "incollection") {
+    const eds = splitAuthors(f.editor);
+    const edLine = eds.length ? `${esc(nameList(eds))} (${eds.length > 1 ? "eds." : "ed."}), ` : "";
+    const where = f.address || f.location || "";
+    return `${quoted} ${year}. In ${edLine}<em>${esc(f.booktitle || "")}</em>. ` +
+      `${where ? esc(where) + ": " : ""}${esc(f.publisher || "")}.${withLine}`;
+  }
+  // @misc: policy reports and preprints; the outlet sits in archivePrefix
+  let outlet = f.archiveprefix || f.publisher || f.journal || "";
+  const arxiv = (f.doi || "").match(/arXiv\.(\d{4}\.\d{4,5})/i);
+  if (outlet === "arXiv" && arxiv) outlet = `arXiv preprint ${arxiv[1]}`;
+  return `${quoted} ${year}.${outlet ? " " + endStop(esc(outlet)) : ""}${withLine}`;
 }
 
 function load(file) {
@@ -166,6 +241,13 @@ function load(file) {
       selected: f.selected === "true",
       showBibtex: f.bibtex_show === "true",
       bibtex: e.raw,
+      // the CV page's version of the entry, and the lines listed beneath it
+      cv: cvCitation(e.type, f, splitAuthors(f.author), ""),
+      cvNotes: [
+        ...[1, 2, 3].filter((n) => f[`award${n}`]).map((n) => f[`award${n}`]),
+        ...[1, 2, 3].filter((n) => f[`cv_note${n}`]).map((n) => f[`cv_note${n}`]),
+      ].map(endStop),
+      cvSection: f.cv_section || "",
     };
   });
 }
@@ -176,7 +258,27 @@ const reports = load("policy_reports.bib");
 const working = load("working_papers.bib");
 const forthcoming = load("forthcoming.bib");
 
+// Newest year first; within a year, file order (higher in the file = higher on
+// the page), exactly as the research page does it.
+const newestFirst = (list) =>
+  list.map((p, i) => [p, i]).sort((a, b) => b[0].year - a[0].year || a[1] - b[1]).map((x) => x[0]);
+const ofType = (list, ...types) => list.filter((p) => types.includes(p.type));
+
+const cv = {
+  books,
+  articles: [
+    ...working.filter((p) => p.cvSection === "articles"),
+    ...ofType(forthcoming, "article", "misc"),
+    ...newestFirst(ofType(papers, "article")),
+  ],
+  conference: [...ofType(forthcoming, "inproceedings"), ...newestFirst(ofType(papers, "inproceedings"))],
+  chapters: [...ofType(forthcoming, "incollection"), ...newestFirst(ofType(papers, "incollection"))],
+  reports,
+  working: working.filter((p) => p.cvSection !== "articles"),
+};
+
 export default {
+  cv,
   books,
   papers,
   reports,

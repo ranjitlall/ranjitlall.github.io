@@ -1,0 +1,137 @@
+# ---------------------------------------------------------------------------
+# The CV page (/cv/) is built from this file plus the .bib files.
+#
+#   * PUBLICATIONS are NOT listed here. They come from _bibliography/ — the
+#     same files as the research page — so adding a paper there updates the
+#     CV too. The book's page count and "Reviewed in" line are in books.bib
+#     (pagetotal and cv_note1).
+#   * Everything else is below. Edit the text, keep the layout:
+#       - each item starts with "- " and is indented exactly as its neighbours
+#       - put text containing a colon ( : ) inside double quotes
+#       - <em>...</em> gives italics; <a href="...">...</a> a link
+#   * Run `npm run check` afterwards; it will fail if this file is malformed.
+# ---------------------------------------------------------------------------
+
+affiliation: Department of Politics and International Relations, University of Oxford
+
+employment:
+  - place: University of Oxford
+    dates: 2022–present
+    roles:
+      - Professor of International Political Economy
+      - Fellow in Politics, St John’s College
+      - Director, Centre for Technology and Society (CTS)
+  - place: London School of Economics
+    dates: 2018–2022
+    roles:
+      - Assistant Professor in International Political Economy
+  - place: Financial Times
+    dates: 2010–2011
+    roles:
+      - Editorial writer (Peter Martin Fellow)
+  - place: Bank of England
+    dates: 2009–2010
+    roles:
+      - Economist, Financial Stability Division
+
+education:
+  - place: Harvard University
+    degree: MA, PhD in Government
+    dates: "2018"
+    notes:
+      - Merze Tate Award for best dissertation in the field of international relations, law, and politics, American Political Science Association, 2019
+      - Best Dissertation Award, International Collaboration Section, American Political Science Association, 2019
+      - Robert Noxon Toppan Prize for best dissertation in political science, Department of Government, Harvard University, 2018
+  - place: University of Oxford
+    place_note: (Merton College)
+    degree: BA (Hons), First Class, Philosophy, Politics, and Economics (PPE)
+    dates: "2009"
+    notes:
+      - Gibbs Prize for best undergraduate thesis in politics, 2009
+    # lines without a bullet
+    lines:
+      - Distinction in Preliminary Examinations, 2007
+
+# "Other awards, grants, and fellowships". Prizes for a specific paper go on
+# the paper itself, as award1={...} in its .bib entry.
+awards:
+  - British Academy/Leverhulme Small Research Grant, 2025.
+  - Welcome Grant, St John’s College, University of Oxford, 2025.
+  - Visiting Research Fellow, Department of Political Science, University of California, San Diego, 2021–2022.
+  - Associate Member, Nuffield College, University of Oxford, 2018–present.
+  - Postdoctoral Research Associate, Niehaus Center for Globalization and Governance, Princeton University, 2017–2018.
+  - Leamer-Rosenthal Prize for Open Social Science, Berkeley Initiative for Transparency in the Social Sciences, 2017.
+  - Graduate School of Arts and Sciences (GSAS) Dissertation Completion Fellowship, Harvard University, 2016–2017.
+  - Research Grant, Institute for Quantitative Social Science, Harvard University, 2016.
+  - Mid-Dissertation Grant, Weatherhead Center for International Affairs (WCFIA), Harvard University, 2015.
+  - Pre-Doctoral Fellowship (full year of funding), Global Economic Governance Programme, University of Oxford, 2013–2014.
+  - Dillon Fellowship Fund Award, GSAS, Harvard University, 2011–2013.
+  - Exhibition (scholarship), Merton College, University of Oxford, 2007.
+  - Fowler Prize for distinguished performance in Collections (termly examination), Merton College, University of Oxford, received three times between 2006 and 2009.
+
+teaching:
+  - place: University of Oxford
+    items:
+      - International Relations (undergraduate), 2022–present.
+      - International Relations (graduate), 2022–present.
+      - International Relations DPhil Research Seminar (graduate), Michaelmas 2023, Hilary 2025, Trinity 2026.
+  - place: London School of Economics
+    items:
+      - International Political Economy (undergraduate), 2018–2021.
+      - International Political Economy (graduate), Michaelmas 2018–2019.
+      - Research Design in International Political Economy (graduate), 2019–2021.
+      - Politics of Money in the World Economy (graduate), Michaelmas 2020.
+      - Politics of Money in the World Economy (undergraduate), Michaelmas 2020.
+    note_label: Qualification
+    note: Postgraduate Certificate in Higher Education, 2020.
+  - place: Harvard University
+    place_note: (as teaching fellow)
+    items:
+      - International Law (undergraduate), Fall 2015.
+      - International Political Economy (undergraduate), Fall 2013, Fall 2014.
+
+service:
+  - place: University of Oxford
+    items:
+      - Search Committee for Associate Professorship in International Relations, Nuffield College, 2026.
+      - Chair of Examiners for History and Politics undergraduate degree, 2024–2025.
+      - International Relations Graduate Studies Committee, 2024–present.
+      - Investment Committee, St John’s College, 2024–present.
+      - Search Committee for John G. Winant Associate Professorship in U.S. Foreign Policy, Nuffield College, 2024.
+      - Chair of the International Relations Panel, 2023–2024.
+      - Educational Policy Committee, St John’s College, 2023–2025.
+      - Politics Subject Examination Board, 2022–2025.
+  - place: London School of Economics
+    items:
+      - Search Committee for Assistant Professorship in International Political Economy, 2019.
+      - PhD Sub-Committee, 2019–2021.
+      - Search Committee for Assistant Professorship in International Institutions, 2018.
+      - Co-convener of International Political Economy Research Workshop, 2018–2020.
+      - Business Recovery Team, 2018–2019.
+  - place: Profession
+    items:
+      - Editorial Board Member, <em>American Journal of Political Science</em>, 2025–2027.
+      - Reviewer for <em>American Political Science Review, American Journal of Political Science, Foreign Policy Analysis, International Organization, International Studies Quarterly, Journal of European Public Policy, Journal of Politics, New Political Economy, Political Analysis, Public Administration, Regulation &amp; Governance, Review of International Organizations, Review of International Political Economy, World Politics</em>.
+      - Program Chair, International Collaboration Section, American Political Science Association, 2020 Annual Meeting.
+
+software:
+  - name: citest
+    url: https://github.com/MIDASverse/citest
+    text: Python package (on PyPI) for testing conditional independence in incomplete regression analysis with machine learning methods. With Thomas Robinson.
+  - name: citestR
+    url: https://cran.r-project.org/web/packages/citestR/index.html
+    text: R package (on CRAN) equivalent of <code>citest</code>. With Thomas Robinson.
+  - name: MIDASpy
+    url: https://github.com/MIDASverse/MIDASpy
+    text: Python package (on PyPI) for accurate and efficient multiple imputation with deep learning methods. With Thomas Robinson and Alex Stenlake.
+  - name: rMIDAS
+    sep: ":"            # what follows the name; a full stop unless given
+    url: https://cran.r-project.org/web/packages/rMIDAS/index.html
+    text: "Multiple Imputation with Denoising Autoencoders. R package (on CRAN) equivalent of <code>MIDASpy</code>. With Thomas Robinson and Alex Stenlake."
+
+# The link goes on the acronym, as in the old PDF.
+datasets:
+  - Accountability in Global Governance (<a href="https://github.com/ranjitlall/agg">AGG</a>) database.
+  - Performance of International Organizations Project (<a href="https://github.com/ranjitlall/piip">PIIP</a>) database.
+  - World of International Nongovernmental Organizations (<a href="https://github.com/ranjitlall/wingo">WINGO</a>) database.
+  - Project Performance Database (<a href="https://www.aiddata.org/data/project-performance-database-ppd-version-2-0">PPD</a>) v.2.1. With Dan Honig and Bradley C. Parks.

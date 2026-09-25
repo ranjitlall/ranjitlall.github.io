@@ -22,7 +22,7 @@
 @article{lall2016pa,
   abbr={PA},
   bibtex_show={true},
-  title={How Multiple Imputation Makes A Difference},
+  title={How Multiple Imputation Makes a Difference},
   abstract={Political scientists increasingly recognize that multiple imputation represents a superior strategy for analyzing missing data to the widely used method of listwise deletion. However, there has been little systematic investigation of how multiple imputation affects existing empirical knowledge in the discipline. This article presents the first large-scale examination of the empirical effects of substituting multiple imputation for listwise deletion in political science. The examination focuses on research in the major subfield of comparative and international political economy (CIPE) as an illustrative example. Specifically, I use multiple imputation to reanalyze the results of almost every quantitative CIPE study published during a recent five-year period in International Organization and World Politics, two of the leading subfield journals in CIPE. The outcome is striking: in almost half of the studies, key results "disappear" (by conventional statistical standards) when reanalyzed.},
   author={Lall, Ranjit},
   journal={Political Analysis},
@@ -35,6 +35,24 @@
   html={https://www.cambridge.org/core/journals/political-analysis/article/how-multiple-imputation-makes-a-difference/8C6616B679EF8F3EB0041B1BC88EEBB9},
   pdf={Lall 2016 PA.pdf},
   publisher={Cambridge University Press}
+}
+
+@article{lall2017cps,
+  bibtex_show={true},
+  abbr={CPS},
+  title={The Missing Dimension of the Political Resource Curse Debate},
+  abstract={Given the methodological sophistication of the debate over the ``political resource curse'' — the purported negative relationship between natural resource wealth (in particular oil wealth) and democracy — it is surprising that scholars have not paid more attention to the basic statistical issue of how to deal with missing data. This article highlights the problems caused by the most common strategy for analyzing missing data in the political resource curse literature — listwise deletion — and investigates how addressing such problems through the best-practice technique of multiple imputation affects empirical results. I find that multiple imputation causes the results of a number of influential recent studies to converge on a key common finding: A political resource curse does exist, but only since the widespread nationalization of petroleum industries in the 1970s. This striking finding suggests that much of the controversy over the political resource curse has been caused by a neglect of missing-data issues.},
+  author={Lall, Ranjit},
+  journal={Comparative Political Studies},
+  volume={50},
+  number={10},
+  pages={1291--1324},
+  year={2017},
+  doi={10.1177/0010414016666861},
+  url={https://journals.sagepub.com/doi/10.1177/0010414016666861},
+  html={https://journals.sagepub.com/doi/full/10.1177/0010414016666861},
+  pdf={Lall 2017 CPS.pdf},
+  publisher={Sage Publications Sage CA: Los Angeles, CA}
 }
 
 @article{lall2017io,
@@ -58,7 +76,7 @@
 @article{lall2015rg,
   abbr={RegGov},
   bibtex_show={true},
-  title={Timing as a source of regulatory influence: A technical elite network analysis of global finance},
+  title={Timing as a Source of Regulatory Influence: A Technical Elite Network Analysis of Global Finance},
   abstract={Rules governing the international financial system are the subject of some of the most intense distributional battles waged in any area of global governance. Who wins and who loses such battles – and why? I develop a novel analytical framework – technical elite network (TEN) theory – which explains the widely varying levels of influence that stakeholders enjoy over global financial standards. TEN theory draws attention to how issue-specific characteristics of international finance – in particular, its highly technical and complex nature – shape the distributional consequences of global regulatory processes. It posits that such characteristics influence distributional outcomes by (i) affecting who claims first-mover position and, thus, sets the agenda in global financial rulemaking, and (ii) ensuring that proposals made by first movers are increasingly difficult to alter at later stages of rulemaking. I provide empirical evidence for the theory by examining two regulatory regimes that are central to the efficiency and stability of the global financial system: the Basel Committee on Banking Supervision and the International Accounting Standards Board.},
   author={Lall, Ranjit},
   journal={Regulation \& Governance},
@@ -122,7 +140,7 @@
   url={https://www.palgrave.com/gp/book/9780230295407},
   html={https://www.palgrave.com/gp/book/9780230295407},
   year={2011},
-  publisher={Palgrave MacMillan},
+  publisher={Palgrave Macmillan},
   address={Basingstoke},
   pdf={Lall 2011 PM Chapter.pdf}
 }
@@ -130,7 +148,7 @@
 @incollection{lall2020cup,
   abbr={CUP},
   bibtex_show={true},
-  title={Assessing International Organizations: Competition, Collaboration, and Politics of Funding},
+  title={Assessing International Organizations: Competition, Collaboration, and the Politics of Funding},
   author={Lall, Ranjit},
   booktitle={The Power of Global Performance Indicators},
   editor={Kelley, Judith G. and Beth A. Simmons},
@@ -144,22 +162,21 @@
   pdf={Lall 2020 CUP Chapter.pdf}
 }
 
-@article{lall2017cps,
+@article{lall2023jss,
+  abbr={JSS},
   bibtex_show={true},
-  abbr={CPS},
-  title={The Missing Dimension of the Political Resource Curse Debate},
-  abstract={Given the methodological sophistication of the debate over the ``political resource curse'' — the purported negative relationship between natural resource wealth (in particular oil wealth) and democracy — it is surprising that scholars have not paid more attention to the basic statistical issue of how to deal with missing data. This article highlights the problems caused by the most common strategy for analyzing missing data in the political resource curse literature — listwise deletion — and investigates how addressing such problems through the best-practice technique of multiple imputation affects empirical results. I find that multiple imputation causes the results of a number of influential recent studies to converge on a key common finding: A political resource curse does exist, but only since the widespread nationalization of petroleum industries in the 1970s. This striking finding suggests that much of the controversy over the political resource curse has been caused by a neglect of missing-data issues.},
-  author={Lall, Ranjit},
-  journal={Comparative Political Studies},
-  volume={50},
-  number={10},
-  pages={1291--1324},
-  year={2017},
-  doi={10.1177/0010414016666861},
-  url={https://journals.sagepub.com/doi/10.1177/0010414016666861},
-  html={https://journals.sagepub.com/doi/full/10.1177/0010414016666861},
-  pdf={Lall 2017 CPS.pdf},
-  publisher={Sage Publications Sage CA: Los Angeles, CA}
+  title={Efficient Multiple Imputation for Diverse Data in Python and R: MIDASpy and rMIDAS},
+  abstract={This paper introduces software packages for efficiently imputing missing data using deep learning methods in Python (MIDASpy) and R (rMIDAS). The packages implement a recently developed approach to multiple imputation known as MIDAS, which involves introducing additional missing values into the dataset, attempting to reconstruct these values with a type of unsupervised neural network known as a denoising autoencoder, and using the resulting model to draw imputations of originally missing data. These steps are executed by a fast and flexible algorithm that expands both the quantity and the range of data that can be analyzed with multiple imputation. To help users optimize the algorithm for their particular application, MIDASpy and rMIDAS offer a host of user-friendly tools for calibrating and validating the imputation model. We provide a detailed guide to these functionalities and demonstrate their usage on a large real dataset.},
+  author={Lall, Ranjit and Robinson, Thomas},
+  journal={Journal of Statistical Software},
+  pages={1--38},
+  year={2023},
+  volume={107},
+  number={9},
+  doi={10.18637/jss.v107.i09},
+  url={https://www.jstatsoft.org/article/view/v107i09},
+  html={https://www.jstatsoft.org/article/view/v107i09},
+  pdf={Lall and Robinson 2023 JSS.pdf},
 }
 
 @article{honig2023ajps,
@@ -198,23 +215,6 @@
   html={https://www.cambridge.org/core/journals/british-journal-of-political-science/article/varieties-of-anxieties-disaggregating-emotion-and-voting-behaviour-in-the-covid19-era/8EBEA0DED6B4255C9D00B07ACF22F47A},
   url={https://www.cambridge.org/core/journals/british-journal-of-political-science/article/varieties-of-anxieties-disaggregating-emotion-and-voting-behaviour-in-the-covid19-era/8EBEA0DED6B4255C9D00B07ACF22F47A},
   pdf={Lall and Vilalta 2025 BJPS.pdf},
-}
-
-@article{lall2023jss,
-  abbr={JSS},
-  bibtex_show={true},
-  title={Efficient Multiple Imputation for Diverse Data in Python and R: MIDASpy and rMIDAS},
-  abstract={This paper introduces software packages for efficiently imputing missing data using deep learning methods in Python (MIDASpy) and R (rMIDAS). The packages implement a recently developed approach to multiple imputation known as MIDAS, which involves introducing additional missing values into the dataset, attempting to reconstruct these values with a type of unsupervised neural network known as a denoising autoencoder, and using the resulting model to draw imputations of originally missing data. These steps are executed by a fast and flexible algorithm that expands both the quantity and the range of data that can be analyzed with multiple imputation. To help users optimize the algorithm for their particular application, MIDASpy and rMIDAS offer a host of user-friendly tools for calibrating and validating the imputation model. We provide a detailed guide to these functionalities and demonstrate their usage on a large real dataset.},
-  author={Lall, Ranjit and Robinson, Thomas},
-  journal={Journal of Statistical Software},
-  pages={1--38},
-  year={2023},
-  volume={107},
-  number={9},
-  doi={10.18637/jss.v107.i09},
-  url={https://www.jstatsoft.org/article/view/v107i09},
-  html={https://www.jstatsoft.org/article/view/v107i09},
-  pdf={Lall and Robinson 2023 JSS.pdf},
 }
 
 @article{lall2025ajps,
@@ -270,7 +270,7 @@
   coverage1={https://politicalsciencenow.com/could-slave-raids-have-strengthened-states-evidence-from-eastern-europe/},
   coverage1_label={Political Science Now, by Deborah Saki},
   publisher={Cambridge University Press},
-  award1={David Brian Robertson Best Paper Award, APSA Politics and History Section, 2025},
+  award1={David Brian Robertson Best Paper Award, Politics and History Section, American Political Science Association, 2025},
   award1_url={https://www.politics.ox.ac.uk/news/ranjit-lall-wins-apsa-award-paper-slave-raiding-eastern-europe},
   selected={true}
 }

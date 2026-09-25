@@ -174,12 +174,28 @@ unstyled.length === 0
   ? pass(`${usedClasses.size} classes, all styled`)
   : unstyled.forEach((c) => fail(`class "${c}" has no stylesheet rule`));
 
-// ---- 9. CV redirect ------------------------------------------------------
-console.log("\n9. CV redirect");
+// ---- 9. CV page ---------------------------------------------------------
+// The CV is a web page built from src/_data/cv.yaml and the .bib files. Every
+// bibliography entry must appear on it exactly once, and the college address
+// and phone number from the old PDF must never be published.
+console.log("\n9. CV page");
 const cv = fs.readFileSync(path.join(SITE, "cv/index.html"), "utf8");
-cv.includes("/assets/pdf/CV_Website_Aug2026.pdf")
-  ? pass("redirects to the CV PDF")
-  : fail("CV redirect target wrong");
+for (const [label, needle] of [
+  ["employment", "Professor of International Political Economy"],
+  ["education", "Merze Tate Award"],
+  ["awards", "Leamer-Rosenthal Prize"],
+  ["teaching", "Postgraduate Certificate in Higher Education"],
+  ["award wording as on the old CV", "Politics and History Section, American Political Science Association"],
+  ["service", "Editorial Board Member"],
+  ["software and datasets", "Project Performance Database"],
+  ["print styles", "@media print"],
+]) (label === "print styles" ? css : cv).includes(needle) ? pass(label) : fail(`CV: ${label} missing`);
+const cvPubs = cv.match(/class="cv__entry cv__pub"/g) || [];
+cvPubs.length === expected
+  ? pass(`${cvPubs.length} publications, one per .bib entry`)
+  : fail(`CV lists ${cvPubs.length} publications, the .bib files hold ${expected}`);
+/277300|St Giles/.test(cv) ? fail("CV shows the college address or phone") : pass("no address or phone number");
+cv.includes("http-equiv=\"refresh\"") ? fail("CV still redirects") : pass("a page, not a redirect");
 
 console.log(fails === 0 ? "\nALL CHECKS PASSED\n" : `\n${fails} CHECK(S) FAILED\n`);
 process.exit(fails === 0 ? 0 : 1);
