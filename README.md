@@ -49,6 +49,31 @@ Then add these extra fields, which publishers don't supply:
 If you use a new `abbr`, give it a colour in `assets/css/style.css` — search for
 `.badge--`. Without one it falls back to navy, which still works.
 
+### Prizes
+
+```bibtex
+  award1={David Brian Robertson Best Paper Award, APSA Politics and History Section, 2025},
+  award1_url={https://www.politics.ox.ac.uk/news/...},
+```
+
+`award1` through `award3`. The award's name is the field itself; `award1_url` is
+optional and links to an announcement. Shown on its own line above any coverage.
+
+### Linking writing about a paper
+
+Blog posts, summaries and press about an article go in the same `.bib` entry and
+appear on their own line beneath it, distinct from the buttons that lead to the
+paper itself:
+
+```bibtex
+  coverage1={https://politicalsciencenow.com/...},
+  coverage1_label={Political Science Now, by Deborah Saki},
+```
+
+`coverage1` through `coverage3` are available; several are listed on one line.
+Use `link2`..`link4` instead for anything that is another *way to get the paper*
+— a preprint, a working paper version, a replication archive.
+
 ### Editing text
 
 - Home page: `src/index.njk`

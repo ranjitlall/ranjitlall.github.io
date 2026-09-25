@@ -27,6 +27,16 @@
             {% if p.abstract %}<details class="abs"><summary>Abstract</summary><p>{{ p.abstract }}</p></details>{% endif %}
             {% if p.showBibtex %}<details class="bib"><summary>BibTeX</summary><pre>{{ p.bibtex }}</pre></details>{% endif %}
           </div>
+          {% if p.awards.length %}
+          <p class="pub__award"><span class="pub__award__k">Award</span>
+            {%- for a in p.awards %}{% if loop.index0 %};{% endif %} {% if a.url %}<a href="{{ a.url }}">{{ a.name }}</a>{% else %}{{ a.name }}{% endif %}{% endfor -%}
+          </p>
+          {% endif %}
+          {% if p.coverage.length %}
+          <p class="pub__coverage"><span class="pub__coverage__k">Written about in</span>
+            {%- for c in p.coverage %}{% if loop.index0 %},{% endif %} <a href="{{ c.url }}">{{ c.label }}</a>{% endfor -%}
+          </p>
+          {% endif %}
         </div>
       </li>
 {% endmacro %}

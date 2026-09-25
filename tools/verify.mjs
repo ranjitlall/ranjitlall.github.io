@@ -100,6 +100,27 @@ for (const needle of [
 // the Morse author fix
 research.includes("Julia Morse") ? pass("Julia Morse parsed as one author") : fail("Morse author field still wrong");
 
+// ---- 4b. Bib entries are well formed -------------------------------------
+// A field whose line lacks a trailing comma swallows everything after it, so a
+// later field silently disappears from the site. Easy to do by hand, invisible
+// in the output — hence a check.
+console.log("\n4b. Bibliography syntax");
+let malformed = 0;
+for (const f of fs.readdirSync(bibDir).filter((n) => n.endsWith(".bib"))) {
+  const text = fs.readFileSync(path.join(bibDir, f), "utf8");
+  for (const entry of text.split(/\n@/).slice(1)) {
+    const key = (entry.match(/^\w+\s*\{\s*([^,]+),/) || [])[1] || "?";
+    const lines = entry.split("\n").filter((l) => /^\s*\w+\s*=/.test(l));
+    lines.forEach((l, i) => {
+      if (i < lines.length - 1 && /\}\s*$/.test(l) && !/,\s*$/.test(l)) {
+        fail(`${f} - ${key}: "${l.trim().slice(0, 36)}" has no trailing comma`);
+        malformed++;
+      }
+    });
+  }
+}
+if (!malformed) pass("every field is comma-terminated");
+
 // ---- 5. Home page content ------------------------------------------------
 console.log("\n5. Home page");
 const home = fs.readFileSync(path.join(SITE, "index.html"), "utf8");

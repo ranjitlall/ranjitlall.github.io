@@ -10,6 +10,16 @@
 //   html_label   label for that link (default "Publisher")
 //   link2..link4 extra links, each with a matching link2_label etc.
 //                e.g. link2={https://...}  link2_label={CTS Working Paper}
+//   award1..3    prizes the paper has won. The award's name is the field itself;
+//                add award1_url to link to an announcement.
+//                e.g. award1={David Brian Robertson Best Paper Award, APSA}
+//                     award1_url={https://...}
+//   coverage1..3 writing ABOUT the paper — blog posts, summaries, press. These
+//                render on their own line beneath the entry rather than as
+//                buttons, because they are commentary, not ways to get the
+//                paper. Each needs a matching coverage1_label etc.
+//                e.g. coverage1={https://...}
+//                     coverage1_label={Political Science Now, by Deborah Saki}
 //   pdf          filename inside assets/pdf/, or a full URL
 //   selected     set to true to feature it on the home page
 //
@@ -142,6 +152,14 @@ function load(file) {
       extraLinks: [2, 3, 4]
         .filter((n) => f[`link${n}`])
         .map((n) => ({ url: f[`link${n}`], label: f[`link${n}_label`] || "Link" })),
+      // prizes, shown on their own line above any coverage
+      awards: [1, 2, 3]
+        .filter((n) => f[`award${n}`])
+        .map((n) => ({ name: f[`award${n}`], url: f[`award${n}_url`] || "" })),
+      // writing about the paper, shown as a separate line
+      coverage: [1, 2, 3]
+        .filter((n) => f[`coverage${n}`])
+        .map((n) => ({ url: f[`coverage${n}`], label: f[`coverage${n}_label`] || "Read" })),
       doi: f.doi || "",
       pdf: f.pdf ? (f.pdf.includes("://") ? f.pdf : `/assets/pdf/${f.pdf}`) : "",
       url: f.url || "",
