@@ -266,12 +266,13 @@ const ofType = (list, ...types) => list.filter((p) => types.includes(p.type));
 
 const cv = {
   books,
+  // journal articles and conference papers form one list: conditional
+  // acceptances first, then forthcoming, then published work by year
   articles: [
     ...working.filter((p) => p.cvSection === "articles"),
-    ...ofType(forthcoming, "article", "misc"),
-    ...newestFirst(ofType(papers, "article")),
+    ...ofType(forthcoming, "article", "inproceedings", "misc"),
+    ...newestFirst(ofType(papers, "article", "inproceedings")),
   ],
-  conference: [...ofType(forthcoming, "inproceedings"), ...newestFirst(ofType(papers, "inproceedings"))],
   chapters: [...ofType(forthcoming, "incollection"), ...newestFirst(ofType(papers, "incollection"))],
   reports,
   working: working.filter((p) => p.cvSection !== "articles"),

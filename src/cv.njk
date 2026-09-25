@@ -32,7 +32,7 @@ description: Curriculum vitae of Ranjit Lall, Professor of International Politic
         <h2>Employment</h2>
 {% for e in cv.employment %}
         <div class="cv__block">
-          <p class="cv__line"><strong>{{ e.place }}</strong><span class="cv__date">{{ e.dates }}</span></p>
+          <p class="cv__line cv__line--dated"><strong>{{ e.place }}</strong> <span class="cv__date">{{ e.dates }}</span></p>
           {% for r in e.roles %}<p class="cv__line">{{ r | safe }}</p>{% endfor %}
         </div>
 {% endfor %}
@@ -43,8 +43,8 @@ description: Curriculum vitae of Ranjit Lall, Professor of International Politic
 {% for e in cv.education %}
         <div class="cv__block">
           <p class="cv__line"><strong>{{ e.place }}</strong>{% if e.place_note %} {{ e.place_note }}{% endif %}</p>
-          <p class="cv__line">{{ e.degree | safe }}<span class="cv__date">{{ e.dates }}</span></p>
-          {% for n in e.notes %}<p class="cv__line"><span class="cv__bullet">{{ n | safe }}</span></p>{% endfor %}
+          <p class="cv__line cv__line--dated"><span>{{ e.degree | safe }}</span> <span class="cv__date">{{ e.dates }}</span></p>
+          {% for n in e.notes %}<p class="cv__line cv__bulleted"><span class="cv__bullet">{{ n | safe }}</span></p>{% endfor %}
           {% for n in e.lines %}<p class="cv__line">{{ n | safe }}</p>{% endfor %}
         </div>
 {% endfor %}
@@ -54,12 +54,8 @@ description: Curriculum vitae of Ranjit Lall, Professor of International Politic
         <h2>Publications</h2>
         <h3>Book</h3>
 {{ pubs(publications.cv.books) }}
-        <h3>Journal Articles</h3>
+        <h3>Journal Articles and Conference Papers</h3>
 {{ pubs(publications.cv.articles) }}
-{% if publications.cv.conference.length %}
-        <h3>Conference Papers</h3>
-{{ pubs(publications.cv.conference) }}
-{% endif %}
 {% if publications.cv.chapters.length %}
         <h3>Book Chapters</h3>
 {{ pubs(publications.cv.chapters) }}

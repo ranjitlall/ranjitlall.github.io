@@ -817,74 +817,79 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 }
 
 /* ==========================================================================
-   CV page (/cv/). Laid out like the old LaTeX CV: a plain serif document on a
-   white sheet, section headings in bold capitals over a full-width rule, the
-   body indented beneath, dates set flush right. Built from src/_data/cv.yaml
-   and the .bib files.
+   CV page (/cv/). The structure of the old LaTeX CV — capitals headings over a
+   rule, indented body, dates flush right — dressed in the site's palette:
+   navy headings, a gold-to-coral rule, verdigris subheadings and links, gold
+   bullets. Built from src/_data/cv.yaml and the .bib files.
    ========================================================================== */
-.cvpage{background:var(--mist);padding-block:clamp(1.5rem,3vw,2.5rem) clamp(2.5rem,5vw,4rem)}
+.cvpage{background:var(--mist);padding-block:clamp(1.5rem,3vw,2.6rem) clamp(2.5rem,5vw,4rem)}
+.cv__paper{background:#fff;color:var(--ink);font-family:var(--display);
+  font-size:1.05rem;line-height:1.5;
+  padding:clamp(1.6rem,4.5vw,3.4rem) clamp(1.2rem,5vw,4rem);
+  border:1px solid var(--rule);border-top:4px solid var(--navy);
+  box-shadow:0 1px 3px rgba(0,33,71,.06)}
+.cv__paper p{max-width:none;margin:0}
+.cv__paper a{color:var(--verdigris);text-decoration:none;border-bottom:1px solid rgba(46,125,110,.3)}
+.cv__paper a:hover{color:var(--navy);border-bottom-color:var(--navy)}
+.cv__paper strong{font-weight:700;color:var(--navy)}
 
-.cv__paper{max-width:52rem;margin:0 auto;background:#fff;color:#111;
-  font-family:var(--display);font-size:1.02rem;line-height:1.45;
-  padding:clamp(1.6rem,5vw,3.6rem) clamp(1.2rem,6vw,4.4rem);
-  border:1px solid var(--rule);box-shadow:0 1px 3px rgba(0,33,71,.06)}
-.cv__paper a{color:#a3308f;text-decoration:none}
-.cv__paper a:hover{text-decoration:underline}
-.cv__paper strong{font-weight:700;color:#111}
-.cv__paper p{max-width:none}
+.cv__head{text-align:center;margin-bottom:2.2rem}
+.cv__head h1{font-family:var(--display);font-size:clamp(1.9rem,1.5rem+1.4vw,2.5rem);
+  font-weight:700;color:var(--navy);margin:0 0 .7rem}
+/* short gold-to-coral bar under the name, as under every heading on the site */
+.cv__head h1::after{content:"";display:block;width:76px;height:4px;border-radius:100px;
+  margin:.7rem auto 0;background:linear-gradient(90deg,var(--gold),var(--coral))}
+.cv__head p{color:var(--slate)}
 
-.cv__head{text-align:center;margin-bottom:1.6rem}
-.cv__head h1{font-family:var(--display);font-size:2rem;font-weight:700;color:#111;
-  margin:0 0 .5rem;letter-spacing:0}
-.cv__head p{margin:0}
-.cv__head a{color:#111}
-
-.cv__sec{margin-top:1.3rem}
-.cv__sec h2{font-family:var(--display);font-size:.98rem;font-weight:700;color:#111;
-  text-transform:uppercase;letter-spacing:.01em;margin:0 0 .45rem;padding-bottom:.2rem;
-  border-bottom:1px solid #111}
+/* sections: generous space between them, heading over a full-width rule */
+.cv__sec + .cv__sec{margin-top:2.6rem}
+.cv__sec h2{font-family:var(--display);font-size:1.06rem;font-weight:700;color:var(--navy);
+  text-transform:uppercase;letter-spacing:.06em;margin:0 0 1rem;padding-bottom:.4rem;
+  border-bottom:2px solid transparent;
+  border-image:linear-gradient(90deg,var(--gold),var(--coral) 35%,var(--rule) 70%) 1}
 .cv__sec h2::after{display:none}
 /* everything under a heading sits indented, as in the PDF */
 .cv__sec > :not(h2){margin-left:1.6rem}
-.cv__sec h3{font-family:var(--display);font-size:1.02rem;font-weight:700;color:#111;
-  margin-top:1.1rem;margin-bottom:.5rem}
-.cv__sec h2 + h3{margin-top:.5rem}
-.cv__plain{font-weight:400}
+.cv__sec h3{font-family:var(--display);font-size:1.02rem;font-weight:700;color:var(--verdigris);
+  margin-top:1.8rem;margin-bottom:.7rem}
+.cv__sec h2 + h3{margin-top:.2rem}
+.cv__plain{font-weight:400;color:var(--slate)}
 
-/* dated rows */
-.cv__block{margin-bottom:.35rem}
-.cv__line{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
-.cv__line > strong,.cv__line > .cv__bullet{flex:0 1 auto}
-.cv__date{flex:0 0 auto;margin-left:auto;white-space:nowrap}
-.cv__block .cv__line{display:block}
-.cv__block .cv__line:has(.cv__date){display:flex}
+/* dated rows: a two-column grid, so the date can never run into the text */
+.cv__line{margin:0}
+.cv__block + .cv__block{margin-top:.9rem}
+.cv__line--dated{display:grid;grid-template-columns:1fr auto;column-gap:1.5rem;align-items:baseline}
+.cv__date{justify-self:end;white-space:nowrap;font-family:var(--mono);font-size:.82rem;
+  color:var(--gold-deep)}
+.cv__paper .cv__bulleted{margin-top:.25rem}
 
-/* publications and list items: flush entries separated by a little space */
-.cv__entry{margin:0 0 .55rem;text-align:justify;hyphens:auto}
-.cv__pub{margin-bottom:.7rem}
-.cv__gap{margin-top:1rem}
-.cv__bullet::before{content:"\2022\00a0"}
-.cv__code{font-family:var(--mono);font-size:.9em}
-.cv__paper code{font-family:var(--mono);font-size:.9em}
+/* entries: publications and list items, each separated by a little space */
+.cv__paper .cv__entry{margin-bottom:.7rem}
+.cv__paper .cv__pub{margin-bottom:1rem}
+.cv__paper .cv__gap{margin-top:1.1rem}
+.cv__bullet::before{content:"\25CF\00a0\00a0";color:var(--gold);font-size:.8em;vertical-align:.1em}
+.cv__code{font-family:var(--mono);font-size:.88em}
+.cv__paper code{font-family:var(--mono);font-size:.88em;color:var(--navy)}
 @media(max-width:600px){
   .cv__sec > :not(h2){margin-left:0}
-  .cv__entry{text-align:left}
-  .cv__block .cv__line:has(.cv__date){flex-direction:column;gap:0}
-  .cv__date{margin-left:0}
+  .cv__line--dated{grid-template-columns:1fr}
+  .cv__date{justify-self:start}
 }
 
 /* ---- Printing ---------------------------------------------------------------
    Only the document prints: no bars, nav, footer, card or shading. */
 @media print{
-  @page{size:A4;margin:22mm 22mm 20mm}
+  @page{size:A4;margin:20mm 20mm 18mm}
   .topbar,.oxstrip,.site-header,.affil,.site-footer,.skip-link{display:none !important}
   body,.cvpage{background:#fff}
   .cvpage{padding:0}
   .cvpage .wrap{max-width:none;padding:0}
-  .cv__paper{max-width:none;border:0;box-shadow:none;padding:0;font-size:10.5pt;line-height:1.32}
-  .cv__pub{margin-bottom:.55rem}
+  .cv__paper{border:0;box-shadow:none;padding:0;font-size:10.5pt;line-height:1.35}
   .cv__head h1{font-size:18pt}
+  .cv__sec + .cv__sec{margin-top:14pt}
   .cv__sec h2{font-size:10.5pt;break-after:avoid}
-  .cv__sec h3{font-size:10.5pt;break-after:avoid}
+  .cv__sec h3{font-size:10.5pt;margin-top:10pt;break-after:avoid}
+  .cv__paper .cv__pub{margin-bottom:6pt}
+  .cv__paper .cv__entry{margin-bottom:4pt}
   .cv__block,.cv__entry{break-inside:avoid}
 }
