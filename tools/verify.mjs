@@ -197,5 +197,14 @@ cvPubs.length === expected
 /277300|St Giles/.test(cv) ? fail("CV shows the college address or phone") : pass("no address or phone number");
 cv.includes("http-equiv=\"refresh\"") ? fail("CV still redirects") : pass("a page, not a redirect");
 
+// ---- 10. Stylesheet cache-busting ----------------------------------------
+// Without a changing ?v= on the stylesheet URL, browsers keep showing an old
+// cached style.css after a deploy, and new pages appear unstyled.
+console.log("\n10. Stylesheet URL changes with each build");
+const busted = pages.filter((f) => /style\.css\?v=\w+"/.test(fs.readFileSync(f, "utf8"))).length;
+busted === pages.length
+  ? pass(`all ${pages.length} pages load style.css?v=...`)
+  : fail(`${pages.length - busted} page(s) load the stylesheet without ?v=`);
+
 console.log(fails === 0 ? "\nALL CHECKS PASSED\n" : `\n${fails} CHECK(S) FAILED\n`);
 process.exit(fails === 0 ? 0 : 1);
