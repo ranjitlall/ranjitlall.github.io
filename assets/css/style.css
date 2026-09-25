@@ -824,7 +824,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
    ========================================================================== */
 .cvpage{background:var(--mist);padding-block:clamp(1.5rem,3vw,2.6rem) clamp(2.5rem,5vw,4rem)}
 .cv__paper{background:#fff;color:var(--ink);font-family:var(--display);
-  font-size:1.05rem;line-height:1.5;
+  font-size:.94rem;line-height:1.5;
   padding:clamp(1.6rem,4.5vw,3.4rem) clamp(1.2rem,5vw,4rem);
   border:1px solid var(--rule);border-top:4px solid var(--navy);
   box-shadow:0 1px 3px rgba(0,33,71,.06)}
@@ -834,7 +834,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .cv__paper strong{font-weight:700;color:var(--navy)}
 
 .cv__head{text-align:center;margin-bottom:2.2rem}
-.cv__head h1{font-family:var(--display);font-size:clamp(1.9rem,1.5rem+1.4vw,2.5rem);
+.cv__head h1{font-family:var(--display);font-size:clamp(1.7rem,1.35rem+1.2vw,2.15rem);
   font-weight:700;color:var(--navy);margin:0 0 .7rem}
 /* short gold-to-coral bar under the name, as under every heading on the site */
 .cv__head h1::after{content:"";display:block;width:76px;height:4px;border-radius:100px;
@@ -842,15 +842,15 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .cv__head p{color:var(--slate)}
 
 /* sections: generous space between them, heading over a full-width rule */
-.cv__sec + .cv__sec{margin-top:2.6rem}
-.cv__sec h2{font-family:var(--display);font-size:1.06rem;font-weight:700;color:var(--navy);
+.cv__sec + .cv__sec{margin-top:2.3rem}
+.cv__sec h2{font-family:var(--display);font-size:.95rem;font-weight:700;color:var(--navy);
   text-transform:uppercase;letter-spacing:.06em;margin:0 0 1rem;padding-bottom:.4rem;
   border-bottom:2px solid transparent;
   border-image:linear-gradient(90deg,var(--gold),var(--coral) 35%,var(--rule) 70%) 1}
 .cv__sec h2::after{display:none}
 /* everything under a heading sits indented, as in the PDF */
 .cv__sec > :not(h2){margin-left:1.6rem}
-.cv__sec h3{font-family:var(--display);font-size:1.02rem;font-weight:700;color:var(--verdigris);
+.cv__sec h3{font-family:var(--display);font-size:.94rem;font-weight:700;color:var(--verdigris);
   margin-top:1.8rem;margin-bottom:.7rem}
 .cv__sec h2 + h3{margin-top:.2rem}
 .cv__plain{font-weight:400;color:var(--slate)}
@@ -859,7 +859,7 @@ details.bib pre{margin:.7rem 0 0;background:#0f2438;color:#cfe3f5;border-radius:
 .cv__line{margin:0}
 .cv__block + .cv__block{margin-top:.9rem}
 .cv__line--dated{display:grid;grid-template-columns:1fr auto;column-gap:1.5rem;align-items:baseline}
-.cv__date{justify-self:end;white-space:nowrap;font-family:var(--mono);font-size:.82rem;
+.cv__date{justify-self:end;white-space:nowrap;font-family:var(--mono);font-size:.74rem;
   color:var(--gold-deep)}
 .cv__paper .cv__bulleted{margin-top:.25rem}
 
