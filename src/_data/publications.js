@@ -266,7 +266,7 @@ const ofType = (list, ...types) => list.filter((p) => types.includes(p.type));
 
 const cv = {
   books,
-  // journal articles and conference papers form one list: conditional
+  // journal articles and conference proceedings form one list: conditional
   // acceptances first, then forthcoming, then published work by year
   articles: [
     ...working.filter((p) => p.cvSection === "articles"),

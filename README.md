@@ -94,7 +94,7 @@ A few `.bib` fields exist only for the CV:
                                         % journal articles (conditional acceptances)
 ```
 
-Journal articles, conference papers and chapters are sorted newest year first.
+Journal articles, conference proceedings and chapters are sorted newest year first.
 Within a year the order follows `papers.bib`, exactly as on the research page:
 put the more recent paper higher in the file. There is no PDF download on
 the page; if the page is printed, the print styles at the end of `style.css` keep
