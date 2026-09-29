@@ -59,6 +59,18 @@ If you use a new `abbr`, give it a colour in `assets/css/style.css` — search f
 `award1` through `award3`. The award's name is the field itself; `award1_url` is
 optional and links to an announcement. Shown on its own line above any coverage.
 
+### Research strands on the home page
+
+Each of the four strand cards lists that strand's two most recent items,
+forthcoming work first. An item appears there when its `.bib` entry has a
+`theme` field:
+
+```bibtex
+  theme={methods},        % tech, coop, dev or methods; several: {tech, coop}
+```
+
+Untagged entries simply don't appear on the cards. Nothing else to edit.
+
 ### Linking writing about a paper
 
 Blog posts, summaries and press about an article go in the same `.bib` entry and

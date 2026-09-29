@@ -78,6 +78,12 @@ permalink: /index.html
         <p>How AI and other emerging technologies are reshaping labour markets, redistributing
           economic and political power, and reordering the politics that follows from both.
           Much of this work now runs through the Centre for Technology and Society.</p>
+        {% if publications.themed.tech.length %}
+        <p class="theme__recent">Recent work</p>
+        <ul class="theme__pubs">
+          {% for p in publications.themed.tech %}<li><a href="{{ p.html or ('https://doi.org/' + p.doi if p.doi else p.url) }}">{{ p.title }}</a> <span class="theme__venue">{% if p.type == 'book' %}Book{% else %}{{ p.abbr }}{% endif %}{% if p.note %} (forthcoming){% elif p.year %} {{ p.year }}{% endif %}</span></li>{% endfor %}
+        </ul>
+        {% endif %}
       </article>
       <article class="theme">
         <span class="theme__n">Strand II</span>
@@ -85,6 +91,12 @@ permalink: /index.html
         <p>Why some international institutions perform better than others, how they are held to
           account, and what makes bureaucratic autonomy possible in a world of states pursuing
           narrow interests.</p>
+        {% if publications.themed.coop.length %}
+        <p class="theme__recent">Recent work</p>
+        <ul class="theme__pubs">
+          {% for p in publications.themed.coop %}<li><a href="{{ p.html or ('https://doi.org/' + p.doi if p.doi else p.url) }}">{{ p.title }}</a> <span class="theme__venue">{% if p.type == 'book' %}Book{% else %}{{ p.abbr }}{% endif %}{% if p.note %} (forthcoming){% elif p.year %} {{ p.year }}{% endif %}</span></li>{% endfor %}
+        </ul>
+        {% endif %}
       </article>
       <article class="theme">
         <span class="theme__n">Strand III</span>
@@ -92,6 +104,12 @@ permalink: /index.html
         <p>What makes development finance work — the effectiveness of aid projects, the
           transparency of the agencies that run them, and the long-run historical forces that
           shape where prosperity takes hold.</p>
+        {% if publications.themed.dev.length %}
+        <p class="theme__recent">Recent work</p>
+        <ul class="theme__pubs">
+          {% for p in publications.themed.dev %}<li><a href="{{ p.html or ('https://doi.org/' + p.doi if p.doi else p.url) }}">{{ p.title }}</a> <span class="theme__venue">{% if p.type == 'book' %}Book{% else %}{{ p.abbr }}{% endif %}{% if p.note %} (forthcoming){% elif p.year %} {{ p.year }}{% endif %}</span></li>{% endfor %}
+        </ul>
+        {% endif %}
       </article>
       <article class="theme">
         <span class="theme__n">Methods</span>
@@ -99,6 +117,12 @@ permalink: /index.html
         <p>Techniques for drawing valid inferences from incomplete data, including deep-learning
           approaches to multiple imputation and tests for conditional independence — released as
           open-source packages for R and Python.</p>
+        {% if publications.themed.methods.length %}
+        <p class="theme__recent">Recent work</p>
+        <ul class="theme__pubs">
+          {% for p in publications.themed.methods %}<li><a href="{{ p.html or ('https://doi.org/' + p.doi if p.doi else p.url) }}">{{ p.title }}</a> <span class="theme__venue">{% if p.type == 'book' %}Book{% else %}{{ p.abbr }}{% endif %}{% if p.note %} (forthcoming){% elif p.year %} {{ p.year }}{% endif %}</span></li>{% endfor %}
+        </ul>
+        {% endif %}
       </article>
     </div>
   </div>

@@ -22,6 +22,9 @@
 //                     coverage1_label={Political Science Now, by Deborah Saki}
 //   pdf          filename inside assets/pdf/, or a full URL
 //   selected     set to true to feature it on the home page
+//   theme        which home-page research strand it belongs to: tech, coop,
+//                dev or methods (several allowed, comma-separated). Each
+//                strand card lists its two most recent tagged items.
 //
 // Fields used only by the CV page (/cv/):
 //   cv_note1..3  extra lines under the entry on the CV, e.g. the book's
@@ -248,6 +251,7 @@ function load(file) {
         ...[1, 2, 3].filter((n) => f[`cv_note${n}`]).map((n) => f[`cv_note${n}`]),
       ].map(endStop),
       cvSection: f.cv_section || "",
+      themes: (f.theme || "").split(/[\s,]+/).filter(Boolean),
     };
   });
 }
@@ -278,8 +282,21 @@ const cv = {
   working: working.filter((p) => p.cvSection !== "articles"),
 };
 
+// Everything tagged with a theme, most recent first: forthcoming work, then
+// books, articles and reports by year. The home page takes the first two per
+// strand.
+const byRecency = [
+  ...forthcoming,
+  ...newestFirst([...books, ...papers, ...reports]),
+].filter((p) => p.themes.length);
+const themed = {};
+for (const key of ["tech", "coop", "dev", "methods"]) {
+  themed[key] = byRecency.filter((p) => p.themes.includes(key)).slice(0, 2);
+}
+
 export default {
   cv,
+  themed,
   books,
   papers,
   reports,

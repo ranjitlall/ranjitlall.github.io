@@ -317,6 +317,21 @@ strong{font-weight:600;color:var(--navy)}
 .theme:nth-child(3) .theme__n{color:#1f6a8c}
 .theme:nth-child(4) .theme__n{color:#5c4382}
 .theme p{font-size:.85rem;line-height:1.5;color:var(--slate)}
+/* the two most recent tagged publications, from the theme= field in the .bib files */
+.theme p.theme__recent{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--slate);margin:.9rem 0 .45rem;padding-top:.7rem;
+  border-top:1px solid var(--rule);max-width:none}
+.theme__pubs{list-style:none;margin:0;padding:0;font-size:.82rem;line-height:1.4}
+.theme__pubs li{position:relative;padding-left:.95rem;margin-bottom:.45rem}
+.theme__pubs li::before{content:"";position:absolute;left:0;top:.5em;width:5px;height:5px;
+  border-radius:50%;background:var(--gold)}
+.theme:nth-child(2) .theme__pubs li::before{background:var(--coral)}
+.theme:nth-child(3) .theme__pubs li::before{background:var(--cyan)}
+.theme:nth-child(4) .theme__pubs li::before{background:var(--violet)}
+.theme__pubs a{color:var(--navy);text-decoration:none;font-weight:500}
+.theme__pubs a:hover{color:var(--verdigris);text-decoration:underline}
+.theme__venue{font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;color:var(--slate);
+  white-space:nowrap}
 
 /* ---- Book feature ---- */
 .book{display:grid;gap:clamp(1.25rem,2.6vw,2.1rem);align-items:center}

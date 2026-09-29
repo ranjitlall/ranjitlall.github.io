@@ -132,6 +132,12 @@ for (const [label, needle] of [
   ["highlight: political power", ">political power<"],
   ["book cover", "book-cover.jpg"],
 ]) home.includes(needle) ? pass(label) : fail(`${label} missing`);
+// each research strand lists recent work, from theme= tags in the .bib files
+const strandLists = (home.match(/<ul class="theme__pubs">[\s\S]*?<\/ul>/g) || [])
+  .map((ul) => (ul.match(/<li>/g) || []).length);
+strandLists.length === 4 && strandLists.every((n) => n >= 1)
+  ? pass(`recent work under each strand (${strandLists.join(", ")})`)
+  : fail(`strand publication lists: ${JSON.stringify(strandLists)} — check theme= tags`);
 
 // ---- 6. Book page --------------------------------------------------------
 console.log("\n6. Book page");
